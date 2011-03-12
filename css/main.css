@@ -1,0 +1,222 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	font: 14px verdana, sans-serif;
+	line-height: 140%;
+}
+
+h1,h2 {
+	padding: 0.5em;
+	font-family: calibri, helvetica, sans-serif;
+	margin: 0;
+}
+
+.top {
+	background: #182F51;
+	height: 6px;
+}
+
+h1 {
+	/* border-top: 6px solid #182F51; */
+	border-top: 1px solid white;
+	background: #E7F3FB;
+	color: #182F51;
+	text-shadow: 1px 1px 0px white;
+}
+
+h2 {
+	padding: 0.5em 0.25em;
+	color: #1C97E8;
+}
+
+
+p {
+	margin: 0px;
+	padding: 0px 1.0em 0.5em 1.0em;
+}
+
+a:link, a:visited {
+	color: #4570B8;
+	border-bottom: 1px solid #4570B8;
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: #E7F3FB;
+}
+
+ul {
+	margin: 0px;
+}
+
+ul#nav {
+	margin: 1.0em 0.0em;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: #afafaf;
+	margin: 0px 1em;
+}
+
+.sub {
+	font-size: 66%;
+}
+
+.foot {
+	color: #afafaf;
+	font-size: 80%;
+	text-align: center;
+	margin: 1.0em 0em;
+}
+
+.foot a {
+	text-decoration: none;
+	color: #777777;
+	border-bottom: 1px solid #777777;
+}
+
+.foot a:hover {
+	color: #000000;
+	background: none;
+}
+
+.demo {
+	border: 1px solid #777777;
+}
+
+#demoselect {
+	margin-bottom: 1em;
+}
+
+table.demo {
+	/* width: 938px; */
+	width: 100%;
+}
+
+div.demo {
+	margin-bottom: 0;
+	padding: 0.5em 0em;
+}
+
+.demo .input, .demo .output {
+	width: 50%;
+	padding: 0.5em;
+}
+
+.demo .output {
+	background: #f4f4f4;
+	border-left: 1px dashed #777;
+}
+
+.demo textarea {
+	width: 99%;
+}
+
+.demo pre {
+	overflow-x: auto; 
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap !important;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+
+.demo .buttons {
+	text-align: right;
+}
+
+.examples {
+	display: none;
+}
+
+.comments {
+	padding: 0.5em;
+	border: 1px solid #777777;
+}
+
+p.important {
+	background-color: #FBE7E7;
+	background-color: #FFD6D7;
+	background-color: #FFDEE2;
+	padding: 1em 0.5em;
+	margin: 0.5em 0.0em 0.5em 0.5em;
+}
+
+
+/* vim stuff */
+.Comment { color: #7c7c7c; }
+.Conditional { color: #6699cc; }
+.Statement { color: #6699cc; }
+.String { color: #a8ff60; }
+.Operator { color: #ffffff; }
+.Identifier { color: #c6c5fe; }
+.Function { color: #ffd2a7; }
+.Type { color: #ffffb6; }
+pre.code { font-family: monospace; 
+	color: #f6f3e8; background-color: #000000;
+	background-color: #101C2D /*#090E16*/;
+	background-color: #101010;
+	padding: 1.0em 4.0em;
+	margin: 1.0em;
+}
+.Delimiter { color: #00a0a0; }
+.PreProc { color: #96cbfe; }
+
+
+.green-info {
+	background: #E0FAD7;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	margin-top: 1em;
+}
+
+
+.green-info a:hover {
+	background: none;
+}
+
+.green-info h3 {
+	color: #0F3900;
+	text-shadow: 1px 1px 0px white;
+	margin: 0px 0px 8px 0px;
+}
+
+.pad {
+	padding: 1em;
+}
+
+.pad-small {
+	padding: 0px 8px;
+}
+
+.center {
+	text-align: center;
+}
+
+.single-commit {
+	border: 1px solid #777777;
+	margin-bottom: 2px;
+	padding: 2px 4px;
+	cursor: pointer;
+	font-size: 90%;
+}
+
+.single-commit:hover {
+	background-color: #F4FFF0;
+	border: 1px solid green;
+
+
+	background-color: #FFFDEB;
+	border: 1px solid #484100;
+
+}
+
+.commit-message {
+	font-style: italic;
+	color: #444;
+	padding: 0px 2px;
+}
+
