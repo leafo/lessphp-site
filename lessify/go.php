@@ -18,6 +18,14 @@ if (get_magic_quotes_gpc()) {
 }
 
 $data = $_POST['css'];
+/*
+if (strlen($data) > 1024*10) {
+	echo '<b>Error:</b> input size too large for online demo. '.
+		'Download <a href="http://github.com/leafo/lessphp/blob/master/lessify.inc.php">lessify.inc.php</a> '.
+		'to run locally. See <a href="http://github.com/leafo/lessphp/blob/master/lessify">lessify</a> for usage.';
+	return;
+}
+ */
 
 try  {
 	$parser = new lessify();

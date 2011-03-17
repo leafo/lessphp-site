@@ -1,4 +1,16 @@
 
+.new {
+	background: #FAFAD7;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	padding: 1em;
+}
+
+.new strong {
+	color: #59502B;
+}
+
+
 body {
 	margin: 0;
 	padding: 0;
@@ -17,12 +29,28 @@ h1,h2 {
 	height: 6px;
 }
 
-h1 {
-	/* border-top: 6px solid #182F51; */
+.header {
 	border-top: 1px solid white;
 	background: #E7F3FB;
 	color: #182F51;
 	text-shadow: 1px 1px 0px white;
+}
+
+.header h1 {
+	padding: 0.5em 0.5em 0.5em 0;
+}
+
+.header-link {
+	padding-top: 1em;
+}
+
+.header-link a:link {
+	border-bottom: none;
+}
+
+
+.header-link a:hover {
+	border-bottom: 1px solid #4570B8;
 }
 
 h1 a:link, h1 a:visited {

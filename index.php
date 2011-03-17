@@ -26,9 +26,13 @@
 </head>
 <body>
 	<div class="top"></div>
-	<h1>
-		<div class="container_12">lessphp</div>
-	</h1>
+
+	<div class="header">
+		<div class="container_12">
+			<h1><a href="http://leafo.net/lessphp">lessphp</a></h1>
+		</div>
+	</div>
+
 
 	<div class="container_12">
 		<div class="grid_4">
@@ -72,6 +76,12 @@
 		<div class="clear"></div>
 
 		<div class="grid_12">
+			<div class="new">
+				<strong>New:</strong> Try converting your existing CSS into LESS using
+				<a href="http://leafo.net/lessphp/lessify">lessify</a>.
+			</div>
+
+
 			<a name="about"></a>
 			<h2>About</h2>
 			<p><strong>lessphp</strong> is a compiler for <a href="http://lesscss.org/">LESS</a> written in PHP.</p>

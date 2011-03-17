@@ -10,19 +10,47 @@
 	<title>lessphp - leaner css in php</title>
 	<link rel="alternate" type="application/rss+xml" title="lessphp changelog feed" href="http://leafo.net/lessphp/feed/" /> 
 
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-136625-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+
 </head>
 <body>
 
 
 	<div class="top"></div>
-	<h1>
-		<div class="container_12"><a href="http://leafo.net/lessphp">lessphp</a></div>
-	</h1>
+
+	<div class="header">
+		<div class="container_12">
+			<h1 style="float: left;"><a href="http://leafo.net/lessphp">lessphp</a></h1>
+			<div class="header-link"><a href="http://leafo.net/lessphp/">&laquo; Back to home</a></div>
+			<div class="clear"></div>
+		</div>
+	</div>
 
 	<div class="container_12">
 		<h2>Lessify</h2>
-		<p><code>lessify</code> will attempt to compress and organize your css code into
-		<code>less</code> code.</p>
+		<p><code>lessify</code> will attempt to compress and organize your CSS code into
+		LESS code. This is an experimental tool, please report any bugs on the
+		<a href="http://github.com/leafo/lessphp/issues">lessphp issue tracker</a>.</p>
+
+		<p>As of now, the only CSS to LESS minimization technique used is to match common prefixes for
+		CSS blocks. <a href="javascript:void(0);" id="_demo" title="Inserts a sample into input">Click here</a>
+		for a sample.</p>
+	</div>
+
+	<div class="container_12" style="margin-top: 10px;">
+		<p>CSS goes here:</p>
 	</div>
 
 	<div class="center">
@@ -35,6 +63,7 @@
 			<button id="_submit" disabled="disabled">Go</button>
 		</div>
 
+		<p>LESS comes here:</p>
 		<pre id="_out"></pre>
 	</div>
 
@@ -43,6 +72,7 @@
 			var go_button = document.getElementById('_submit'),
 				clear_button = document.getElementById('_clear'),
 				input = document.getElementById('_input'),
+				demo_button = document.getElementById('_demo'),
 				out = document.getElementById('_out');
 			
 			clear_button.onclick = function() {
@@ -54,6 +84,12 @@
 				out.innerHTML = "Loading...";
 				send('go.php', 'css='+encodeURIComponent(input.value),
 					function(res) { out.innerHTML = res.responseText; });
+			}
+
+
+			demo_button.onclick = function() {
+				input.value = document.getElementById('_sample').innerHTML;
+				go_button.onclick();
 			}
 		}
 
@@ -84,6 +120,18 @@
 		}
 
 	</script>
+
+
+	<div class="examples">
+	<code id="_sample">#header {
+  color:black;
+  border:1px solid #dd44dd;
+}
+#header .navigation { font-size:12px; }
+#header .navigation a { border-bottom:1px solid green; }
+#header .logo { width:300px; }
+#header .logo:hover { text-decoration:none; }</code>
+	</div>
 
 </body>
 </html>
