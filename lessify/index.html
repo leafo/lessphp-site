@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/text.css" />
+	<link rel="stylesheet" href="../css/960.css" />
+	<link rel="stylesheet" href="../css/main.css" />
+
+	<title>lessphp - leaner css in php</title>
+	<link rel="alternate" type="application/rss+xml" title="lessphp changelog feed" href="http://leafo.net/lessphp/feed/" /> 
+
+</head>
+<body>
+
+
+	<div class="top"></div>
+	<h1>
+		<div class="container_12"><a href="http://leafo.net/lessphp">lessphp</a></div>
+	</h1>
+
+	<div class="container_12">
+		<h2>Lessify</h2>
+		<p><code>lessify</code> will attempt to compress and organize your css code into
+		<code>less</code> code.</p>
+	</div>
+
+	<div class="center">
+		<textarea id="_input" name="input" rows="10" class="container_12"></textarea>
+	</div>
+
+	<div class="container_12">
+		<div class="right">
+			<button id="_clear">Clear</button>
+			<button id="_submit" disabled="disabled">Go</button>
+		</div>
+
+		<pre id="_out"></pre>
+	</div>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			var go_button = document.getElementById('_submit'),
+				clear_button = document.getElementById('_clear'),
+				input = document.getElementById('_input'),
+				out = document.getElementById('_out');
+			
+			clear_button.onclick = function() {
+				input.value = "";
+			}
+
+			go_button.disabled = false;
+			go_button.onclick = function() {
+				out.innerHTML = "Loading...";
+				send('go.php', 'css='+encodeURIComponent(input.value),
+					function(res) { out.innerHTML = res.responseText; });
+			}
+		}
+
+		function send(url, data, finish) {
+			if (typeof XMLHttpRequest == "undefined") {
+				XMLHttpRequest = function () {
+					try { return new ActiveXObject("Msxml2.XMLHTTP.6.0"); }
+						catch (e) {}
+					try { return new ActiveXObject("Msxml2.XMLHTTP.3.0"); }
+						catch (e) {}
+					throw new Error("This browser does not support XMLHttpRequest.");
+				};
+			}
+
+			var req = new XMLHttpRequest();
+			req.onreadystatechange = function() {
+				if (req.readyState == 4) {
+					if (req.status == 200)
+						finish(req);
+					else 
+						alert('failed to send HttpRequest');
+				}
+			};
+
+			req.open("POST", url, true);
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send(data);
+		}
+
+	</script>
+
+</body>
+</html>

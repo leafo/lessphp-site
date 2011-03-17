@@ -371,13 +371,11 @@ If you need more control you can make your own instance of <code>lessc</code>.</
 			var output = document.getElementById('lessout');
 
 			document.getElementById('go').onclick = function () {
+				output.innerHTML = 'Processing...';
 				send('go.php', 'css='+encodeURIComponent(input.value),
-						function () {
-							output.innerHTML = 'Processing...';
-						},
-						function (res) {
-							output.innerHTML = res.responseText;
-						});
+					function (res) {
+						output.innerHTML = res.responseText;
+					});
 			}
 
 			document.getElementById('clear').onclick = function () {
@@ -400,7 +398,7 @@ If you need more control you can make your own instance of <code>lessc</code>.</
 			document.body.appendChild(sctag)
 		}
 
-		function send(url, data, start, finish) {
+		function send(url, data, finish) {
 			if (typeof XMLHttpRequest == "undefined") {
 				XMLHttpRequest = function () {
 					try { return new ActiveXObject("Msxml2.XMLHTTP.6.0"); }
@@ -419,10 +417,9 @@ If you need more control you can make your own instance of <code>lessc</code>.</
 					else 
 						alert('failed to send HttpRequest');
 				}
-			};
+			}
 
 			req.open("POST", url, true);
-			if (start) start();
 			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			req.send(data);
 		}
