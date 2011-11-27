@@ -10,6 +10,9 @@
 	color: #59502B;
 }
 
+.hint {
+    color: #444;
+}
 
 body {
 	margin: 0;
@@ -84,7 +87,7 @@ ul {
 	margin: 0px;
 }
 
-ul#nav {
+#nav {
 	margin: 1.0em 0.0em;
 }
 
@@ -117,58 +120,56 @@ hr {
 	background: none;
 }
 
-.demo {
-	border: 1px solid #777777;
-}
-
 #demoselect {
-	margin-bottom: 1em;
+	border: 1px solid #777777;
+	margin: 1em 0;
+    padding: 0.5em;
 }
 
-table.demo {
-	/* width: 938px; */
-	width: 100%;
+.demo-box {
+    position: relative;
+    border: 1px solid #777;
 }
 
-div.demo {
-	margin-bottom: 0;
-	padding: 0.5em 0em;
+#demo-out {
+    min-height: 400px;
+    margin-left: 50%;
+    background: #f4f4f4;
+    border-left: 1px dashed #777;
+    padding: 8px;
 }
 
-.demo .input, .demo .output {
-	width: 50%;
-	padding: 0.5em;
-}
-
-.demo .output {
-	background: #f4f4f4;
-	border-left: 1px dashed #777;
-}
-
-.demo textarea {
-	width: 99%;
-}
-
-.demo pre {
+pre#demo-out {
 	overflow-x: auto; 
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap !important;
 	white-space: -pre-wrap;
 	white-space: -o-pre-wrap;
 	word-wrap: break-word;
+    margin-bottom: 0px;
 }
 
-.demo .buttons {
-	text-align: right;
+.demo-box .CodeMirror {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 50%;
 }
 
-.examples {
-	display: none;
+.demo-box .CodeMirror-scroll {
+    height: 100%;
 }
+
+.demo-tools {
+    padding: 4px 1em;
+    margin-bottom: 1em;
+}
+
 
 .comments {
-	padding: 0.5em;
-	border: 1px solid #777777;
+    padding: 0.5em;
+    border: 1px solid #777777;
 }
 
 p.important {
@@ -180,25 +181,23 @@ p.important {
 }
 
 
-/* vim stuff */
-.Comment { color: #7c7c7c; }
-.Conditional { color: #6699cc; }
-.Statement { color: #6699cc; }
-.String { color: #a8ff60; }
-.Operator { color: #ffffff; }
-.Identifier { color: #c6c5fe; }
-.Function { color: #ffd2a7; }
-.Type { color: #ffffb6; }
-pre.code { font-family: monospace; 
-	color: #f6f3e8; background-color: #000000;
-	background-color: #101C2D /*#090E16*/;
+/* pygments */
+.s1 { color: #a8ff60; }
+.k { color: #96cbfe; }
+.nb { color: #ffd2a7; }
+.o { color: #00a0a0; }
+.nv { color: #c6c5fe; }
+.cm, .c1 { color: #7c7c7c; }
+.nx { color: #ffffb6; }
+.cp { color: #CCA1AA; }
+
+pre.highlight {
+    font-family: monospace; 
+	color: #f6f3e8;
 	background-color: #101010;
 	padding: 1.0em 4.0em;
 	margin: 1.0em;
 }
-.Delimiter { color: #00a0a0; }
-.PreProc { color: #96cbfe; }
-
 
 .green-info {
 	background: #E0FAD7;
@@ -220,10 +219,6 @@ pre.code { font-family: monospace;
 
 .pad {
 	padding: 1em;
-}
-
-.pad-small {
-	padding: 0px 8px;
 }
 
 .center {
@@ -257,4 +252,13 @@ pre.code { font-family: monospace;
 	color: #444;
 	padding: 0px 2px;
 }
+
+ul {
+    margin: 0 0 1em 1em;
+}
+
+#nav ul, .green-info ul {
+    margin: 0;
+}
+
 

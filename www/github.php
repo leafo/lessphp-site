@@ -1,4 +1,8 @@
 <?php
+/**
+ * this only exists to avoid github's per hour api limit
+ * if it ever becomes a problem.
+ */
 
 $fname = 'commits.js';
 
