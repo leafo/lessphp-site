@@ -60,5 +60,6 @@ site = sitegen.create_site =>
   @title = "lessphp"
   feed "feed.moon", "feed.xml"
   add "docs/index.md"
+  add "editor.html"
 
 site\write!

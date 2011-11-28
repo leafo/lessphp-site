@@ -7,7 +7,7 @@
 $fname = 'commits.js';
 
 if (!file_exists($fname) || time() - filemtime($fname) > 5) {
-	$ch = curl_init("http://github.com/api/v2/json/commits/list/leafo/lessphp/master?callback=load_commits");
+	$ch = curl_init("http://github.com/api/v2/json/commits/list/leafo/lessphp/master?callback=github_commit_callback");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$feed = curl_exec($ch);
 	curl_close($ch);

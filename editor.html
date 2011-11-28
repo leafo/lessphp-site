@@ -1,0 +1,27 @@
+
+<div style="float: right; line-height: 50px;">
+  <a href="$root">Return to lessphp homepage</a>
+</div>
+
+<h2>Online Compiler</h2>
+
+<div class="full-editor">
+  <textarea id="editor-code"></textarea>
+</div>
+<div class="demo-tools">
+  <button id="compile-button">Compile</button>
+  <button id="clear-button">Clear</button>
+</div>
+
+<pre id="demo-out" class="full-output"><i>CSS comes here...</i></pre>
+
+<script type="text/javascript" src="$root/index.js"></script>
+<script type="text/javascript">
+  setup_editor(false);
+  window.onload = function() {
+    editor.focus()
+  }
+</script>
+
+
+

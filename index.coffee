@@ -145,40 +145,6 @@ send = (url, data, on_finish) ->
 
 $ = (id) -> document.getElementById(id)
 
-# prepare editor
-editor = CodeMirror.fromTextArea $("editor-code"), {
-  tabMode: "shift",
-  lineNumbers: true
-}
-
-editor.setValue examples.default
-
-output_node = $ "demo-out"
-
-$("compile-button").onclick = ->
-  output_node.innerHTML = "Processing..."
-  css = encodeURIComponent editor.getValue()
-  send "go.php", "css=#{css}", (req) ->
-    output_node.innerHTML = if req.responseText == ""
-      '<i class="hint">no output</i>'
-    else
-      req.responseText
-
-$("clear-button").onclick = ->
-  editor.setValue ""
-
-links = $("demoselect").getElementsByTagName "a"
-for link in links
-  link.onclick = ->
-    id = this.id.match(/load_([\w_]+)/)
-    if id
-      ex = examples[id[1]]
-      if ex
-        editor.setValue(ex)
-      else
-        alert "Failed to load example: #{id}"
-    false
-
 div = (inner, opts) ->
   node = document.createElement "div"
   if opts
@@ -197,7 +163,32 @@ div = (inner, opts) ->
 format_date = (date) ->
   (new Date(date)).toDateString()
 
-window.load_commits = (out) ->
+editor = null
+window.setup_editor = (show_example=true)->
+  # prepare editor
+  window.editor = editor = CodeMirror.fromTextArea $("editor-code"), {
+    tabMode: "shift",
+    lineNumbers: true
+  }
+
+  editor.setValue examples.default if show_example
+
+  output_node = $ "demo-out"
+
+  $("compile-button").onclick = ->
+    output_node.innerHTML = "Processing..."
+    css = encodeURIComponent editor.getValue()
+    send "go.php", "css=#{css}", (req) ->
+      output_node.innerHTML = if req.responseText == ""
+        '<i class="hint">no output</i>'
+      else
+        req.responseText
+
+  $("clear-button").onclick = ->
+    editor.setValue ""
+
+## commit callback
+window.github_commit_callback = (out) ->
   commits = out.commits
   container = $ "commit-list"
   container.removeChild container.firstChild while container.firstChild
@@ -224,7 +215,20 @@ window.load_commits = (out) ->
   container.appendChild more
   null
 
-window.onload = ->
+window.load_example_links = ->
+  links = $("demoselect").getElementsByTagName "a"
+  for link in links
+    link.onclick = ->
+      id = this.id.match(/load_([\w_]+)/)
+      if id
+        ex = examples[id[1]]
+        if ex
+          editor.setValue(ex)
+        else
+          alert "Failed to load example: #{id}"
+      false
+
+window.load_github_commits = ->
   script = document.createElement "script"
   script.type = "text/javascript"
   script.async = true

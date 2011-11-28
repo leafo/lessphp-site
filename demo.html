@@ -9,16 +9,22 @@
   <a id="load_strings" href="#demo">strings</a>
 </div>
 
+<p class="hint">Edit me &#8628;</p>
+
 <div class="demo-box">
   <textarea id="editor-code"></textarea>
-  <pre id="demo-out">CSS comes here, click compile to build.</pre>
+  <pre id="demo-out" class="output-pane">CSS comes here, click compile to build.</pre>
 </div>
 <div class="demo-tools">
   <button id="compile-button">Compile</button>
   <button id="clear-button">Clear</button>
-  &middot; <a href="">Go to fullscreen version</a>
+  &middot; <a href="$root/editor.html">Go to fullscreen version</a>
 </div>
 
-
 <script type="text/javascript" src="$root/index.js"></script>
+<script type="text/javascript">
+  setup_editor();
+  load_example_links();
+  load_github_commits();
+</script>
 

@@ -140,7 +140,7 @@ hr {
     border: 1px solid #777;
 }
 
-#demo-out {
+.output-pane {
     min-height: 400px;
     margin: 0px;
     margin-left: 50%;
@@ -154,7 +154,7 @@ pre {
     line-height: 19px;
 }
 
-pre#demo-out {
+pre.output-pane {
     overflow-x: auto;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap !important;
@@ -181,6 +181,16 @@ pre#demo-out {
     margin-bottom: 1em;
 }
 
+.full-editor .CodeMirror {
+    border: 1px solid #aaa;
+    margin: 1em 0;
+}
+
+.full-output {
+    border: 1px solid #aaa;
+    margin: 1em 0;
+    padding: 8px;
+}
 
 .comments {
     padding: 0.5em;

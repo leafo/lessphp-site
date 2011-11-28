@@ -1,5 +1,5 @@
 (function() {
-  var $, div, editor, examples, format_date, link, links, output_node, send, _i, _len;
+  var $, div, editor, examples, format_date, send;
   examples = {
     "default": '@base: 24px;\n@border-color: #B2B;\n\n.underline { border-bottom: 1px solid green }\n\n#header {\n  color: black;\n  border: 1px solid @border-color + #222222;\n\n  .navigation {\n    font-size: @base / 2;\n    a {\n    .underline;\n    }\n  }\n  .logo {\n    width: 300px;\n    :hover { text-decoration: none }\n  }\n}',
     variables: '@a: 2;\n@x: @a * @a;\n@y: @x + 1;\n@z: @x * 2 + @y;\n\n@nice-blue: #5B83AD;\n@light-blue: @nice-blue + #111;\n\n@b: @a * 10;\n@c: #888;\n@fonts: "Trebuchet MS", Verdana, sans-serif;\n\n.variables {\n  width: @z + 1cm; // 14cm\n  height: @b + @x + 0px; // 24px\n  color: @c;\n  background: @light-blue;\n  font-family: @fonts;\n}\n',
@@ -41,42 +41,8 @@
   $ = function(id) {
     return document.getElementById(id);
   };
-  editor = CodeMirror.fromTextArea($("editor-code"), {
-    tabMode: "shift",
-    lineNumbers: true
-  });
-  editor.setValue(examples["default"]);
-  output_node = $("demo-out");
-  $("compile-button").onclick = function() {
-    var css;
-    output_node.innerHTML = "Processing...";
-    css = encodeURIComponent(editor.getValue());
-    return send("go.php", "css=" + css, function(req) {
-      return output_node.innerHTML = req.responseText === "" ? '<i class="hint">no output</i>' : req.responseText;
-    });
-  };
-  $("clear-button").onclick = function() {
-    return editor.setValue("");
-  };
-  links = $("demoselect").getElementsByTagName("a");
-  for (_i = 0, _len = links.length; _i < _len; _i++) {
-    link = links[_i];
-    link.onclick = function() {
-      var ex, id;
-      id = this.id.match(/load_([\w_]+)/);
-      if (id) {
-        ex = examples[id[1]];
-        if (ex) {
-          editor.setValue(ex);
-        } else {
-          alert("Failed to load example: " + id);
-        }
-      }
-      return false;
-    };
-  }
   div = function(inner, opts) {
-    var node, opt_name, part, _j, _len2;
+    var node, opt_name, part, _i, _len;
     node = document.createElement("div");
     if (opts) {
       for (opt_name in opts) {
@@ -87,8 +53,8 @@
       if (typeof inner === "string") {
         node.innerHTML = inner;
       } else {
-        for (_j = 0, _len2 = inner.length; _j < _len2; _j++) {
-          part = inner[_j];
+        for (_i = 0, _len = inner.length; _i < _len; _i++) {
+          part = inner[_i];
           node.appendChild(part);
         }
       }
@@ -98,7 +64,33 @@
   format_date = function(date) {
     return (new Date(date)).toDateString();
   };
-  window.load_commits = function(out) {
+  editor = null;
+  window.setup_editor = function(show_example) {
+    var output_node;
+    if (show_example == null) {
+      show_example = true;
+    }
+    window.editor = editor = CodeMirror.fromTextArea($("editor-code"), {
+      tabMode: "shift",
+      lineNumbers: true
+    });
+    if (show_example) {
+      editor.setValue(examples["default"]);
+    }
+    output_node = $("demo-out");
+    $("compile-button").onclick = function() {
+      var css;
+      output_node.innerHTML = "Processing...";
+      css = encodeURIComponent(editor.getValue());
+      return send("go.php", "css=" + css, function(req) {
+        return output_node.innerHTML = req.responseText === "" ? '<i class="hint">no output</i>' : req.responseText;
+      });
+    };
+    return $("clear-button").onclick = function() {
+      return editor.setValue("");
+    };
+  };
+  window.github_commit_callback = function(out) {
     var commits, container, i, max, more, repo_url, _fn;
     commits = out.commits;
     container = $("commit-list");
@@ -133,7 +125,29 @@
     container.appendChild(more);
     return null;
   };
-  window.onload = function() {
+  window.load_example_links = function() {
+    var link, links, _i, _len, _results;
+    links = $("demoselect").getElementsByTagName("a");
+    _results = [];
+    for (_i = 0, _len = links.length; _i < _len; _i++) {
+      link = links[_i];
+      _results.push(link.onclick = function() {
+        var ex, id;
+        id = this.id.match(/load_([\w_]+)/);
+        if (id) {
+          ex = examples[id[1]];
+          if (ex) {
+            editor.setValue(ex);
+          } else {
+            alert("Failed to load example: " + id);
+          }
+        }
+        return false;
+      });
+    }
+    return _results;
+  };
+  window.load_github_commits = function() {
     var script;
     script = document.createElement("script");
     script.type = "text/javascript";
