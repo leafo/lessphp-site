@@ -58,6 +58,7 @@ site = sitegen.create_site =>
         }
 
   @title = "lessphp"
+  deploy_to "leaf@leafo.net", "www/lessphp"
   feed "feed.moon", "feed.xml"
   add "docs/index.md"
   add "editor.html"
