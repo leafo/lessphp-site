@@ -1,6 +1,6 @@
 <?php
 
-require '../src/lessify.inc.php';
+require 'lessify.inc.php';
 
 if (get_magic_quotes_gpc()) {
 	function stripslashes_deep($value) {

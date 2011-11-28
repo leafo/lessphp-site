@@ -1,3 +1,5 @@
+    link_to_home: true
+--
 
 ## Changelog
 

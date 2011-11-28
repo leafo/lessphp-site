@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../css/reset.css" />
-	<link rel="stylesheet" href="../css/text.css" />
-	<link rel="stylesheet" href="../css/960.css" />
-	<link rel="stylesheet" href="../css/main.css" />
+	<link rel="stylesheet" href="../style/reset.css" />
+	<link rel="stylesheet" href="../style/text.css" />
+	<link rel="stylesheet" href="../style/960.css" />
+	<link rel="stylesheet" href="../style/style.css" />
 
-	<title>lessphp - leaner css in php</title>
+	<title>lessphp - lessify: css to less compiler</title>
 	<link rel="alternate" type="application/rss+xml" title="lessphp changelog feed" href="http://leafo.net/lessphp/feed/" /> 
 
 	<script type="text/javascript">
@@ -39,6 +39,14 @@
 	</div>
 
 	<div class="container_12">
+    <p>
+      <div class="new">
+        <strong>Warning:</strong> lessify is no longer supported, it works
+        pretty well but it may barf on you!
+      </div>
+    </p>
+
+
 		<h2>Lessify</h2>
 		<p><code>lessify</code> will attempt to compress and organize your CSS code into
 		LESS code. This is an experimental tool, please report any bugs on the
@@ -122,7 +130,7 @@
 	</script>
 
 
-	<div class="examples">
+	<div style="display: none;">
 	<code id="_sample">#header {
   color:black;
   border:1px solid #dd44dd;
