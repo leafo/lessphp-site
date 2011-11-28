@@ -73,12 +73,6 @@ h3, h4 {
     padding-left: 0.5em;
 }
 
-h3:before {
-    content: "» ";
-    color: gray;
-}
-
-
 p {
 	margin: 0px;
 	padding: 0px 1.0em 0.5em 1.0em;
@@ -92,10 +86,6 @@ a:link, a:visited {
 
 a:hover {
 	background-color: #E7F3FB;
-}
-
-ul {
-	margin: 0px;
 }
 
 #nav {
@@ -202,13 +192,18 @@ p.important {
 .nx, .nc { color: #ffffb6; }
 .cp { color: #CCA1AA; }
 .nf { color: #FFAFA3; }
+.w { color: #FF7C73; }
 
 pre.highlight {
     font-family: monospace; 
 	color: #f6f3e8;
 	background-color: #101010;
 	padding: 1.0em 4.0em;
-	margin: 1.0em;
+	margin: 1.0em 0;
+
+    -moz-box-shadow: 2px 2px 8px #888;
+    -webkit-box-shadow: 2px 2px 8px #888;
+    box-shadow: 2px 2px 8px #888;
 }
 
 .green-info {
@@ -227,6 +222,8 @@ pre.highlight {
 	color: #0F3900;
 	text-shadow: 1px 1px 0px white;
 	margin: 0px 0px 8px 0px;
+    padding: 0px;
+    font-size: 140%;
 }
 
 .pad {
@@ -266,23 +263,37 @@ pre.highlight {
 }
 
 ul {
-    margin: 0 0 1em 1em;
+    margin: 0 0 0 1em;
+}
+
+li {
+    padding: 1px;
 }
 
 #nav ul, .green-info ul {
     margin: 0;
 }
 
+p code {
+    background: #eee;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
 
 /* docs */
 
 
-table.code-split {
+.code-split {
     width: 100%;
 	background-color: #101010;
+	margin: 1.0em 0;
+    -moz-box-shadow: 2px 2px 8px #888;
+    -webkit-box-shadow: 2px 2px 8px #888;
+    box-shadow: 2px 2px 8px #888;
 }
 
-table.code-split td {
+.code-split td {
     width: 450px;
 	overflow-x: auto; 
 
@@ -291,12 +302,29 @@ table.code-split td {
 }
 
 .code-split pre {
-    padding: 8px;
+    padding: 12px;
     margin: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
-.code-split .right-cell {
-    border-left: 1px solid #aaa;
+
+.code-split td.right-cell {
+    border-right: 0;
+    border-left: 2px solid #666;
 }
 
+.split-header {
+    color: #ddd;
+    font-size: 10px;
+    line-height: 16px;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+    background: #666;
+}
+
+.code-split .split-header td {
+    padding-left: 8px;
+}
 

@@ -13,6 +13,8 @@ compile_less = (code) ->
   handle = io.popen "plessc "..fname
   handle\read"*a"
 
+less = require "less"
+
 site = sitegen.create_site =>
   -- automatically add <?php when it's missing
   extra.PygmentsPlugin.custom_highlighters.php = (code_text) =>
@@ -30,7 +32,7 @@ site = sitegen.create_site =>
 
   extra.PygmentsPlugin.custom_highlighters.less = (code_text) =>
     if code_text\match"@import"
-      @pre_tag code_text
+      @pre_tag less.highlight code_text
     else
       css = compile_less code_text
       html.build ->
@@ -40,12 +42,17 @@ site = sitegen.create_site =>
           cellspacing: "0"
           cellpadding: "0"
           tr {
+            class: "split-header"
+            td "LESS"
+            td { "CSS", class: "right-header" }
+          }
+          tr {
             td {
-              raw @pre_tag code_text
+              raw @pre_tag less.highlight code_text
             }
             td {
               class: "right-cell"
-              raw @pre_tag @highlight "css", css
+              raw @pre_tag less.highlight css
             }
           }
         }
