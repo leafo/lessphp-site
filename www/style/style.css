@@ -1,13 +1,13 @@
 
 .new {
-	background: #FAFAD7;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	padding: 1em;
+    background: #FAFAD7;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    padding: 1em;
 }
 
 .new strong {
-	color: #59502B;
+    color: #59502B;
 }
 
 .hint {
@@ -15,10 +15,9 @@
 }
 
 body {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
     font: 14px verdana, sans-serif;
-	/* line-height: 140%; */
 }
 
 hr {
@@ -29,14 +28,14 @@ hr {
 }
 
 h1, h2, h3, h4 {
-	padding: 0.5em;
-	font-family: calibri, helvetica, sans-serif;
-	margin: 0;
+    padding: 0.5em;
+    font-family: calibri, helvetica, sans-serif;
+    margin: 0;
 }
 
 h2, h3, h4 {
-	padding: 0.5em 0.25em;
-	color: #1C97E8;
+    padding: 0.5em 0.25em;
+    color: #1C97E8;
 }
 
 
@@ -44,94 +43,94 @@ h2 { font-size: 23px; }
 h3 { font-size: 18px; }
 
 .top {
-	background: #182F51;
-	height: 6px;
+    background: #182F51;
+    height: 6px;
 }
 
 .header {
-	border-top: 1px solid white;
-	background: #E7F3FB;
-	color: #182F51;
-	text-shadow: 1px 1px 0px white;
+    border-top: 1px solid white;
+    background: #E7F3FB;
+    color: #182F51;
+    text-shadow: 1px 1px 0px white;
 }
 
 .header h1 {
     font-size: 25px;
     padding: 0.25em;
-	padding-left: 0;
+    padding-left: 0;
 }
 
 .header-link {
-	padding-top: 1em;
+    padding-top: 1em;
 }
 
 .header-link a:link {
-	border-bottom: none;
+    border-bottom: none;
 }
 
 
 .header-link a:hover {
-	border-bottom: 1px solid #4570B8;
+    border-bottom: 1px solid #4570B8;
 }
 
 h1 a:link, h1 a:visited {
-	color: #182F51;
-	text-decoration: none;
-	border-bottom: 0;
+    color: #182F51;
+    text-decoration: none;
+    border-bottom: 0;
 }
 
 p {
-	margin: 0px;
-	padding: 0px 1.0em 0.5em 1.0em;
+    margin: 0px;
+    padding: 0px 1.0em 0.5em 1.0em;
     line-height: 130%;
 }
 
 a:link, a:visited {
-	color: #4570B8;
-	border-bottom: 1px solid #4570B8;
-	text-decoration: none;
+    color: #4570B8;
+    border-bottom: 1px solid #4570B8;
+    text-decoration: none;
 }
 
 a:hover {
-	background-color: #E7F3FB;
+    background-color: #E7F3FB;
 }
 
 #nav {
-	margin: 1.0em 0.0em;
+    margin: 1.0em 0.0em;
 }
 
 hr {
-	border: 0;
-	height: 1px;
-	background-color: #afafaf;
-	margin: 0px 1em;
+    border: 0;
+    height: 1px;
+    background-color: #afafaf;
+    margin: 0px 1em;
 }
 
 .sub {
-	font-size: 66%;
+    font-size: 66%;
 }
 
 .foot {
-	color: #afafaf;
-	font-size: 80%;
-	text-align: center;
-	margin: 1.0em 0em;
+    color: #afafaf;
+    font-size: 80%;
+    text-align: center;
+    margin: 1.0em 0em;
 }
 
 .foot a {
-	text-decoration: none;
-	color: #777777;
-	border-bottom: 1px solid #777777;
+    text-decoration: none;
+    color: #777777;
+    border-bottom: 1px solid #777777;
 }
 
 .foot a:hover {
-	color: #000000;
-	background: none;
+    color: #000000;
+    background: none;
 }
 
 #demoselect {
-	border: 1px solid #777777;
-	margin: 1em 0;
+    border: 1px solid #777777;
+    margin: 1em 0;
     padding: 0.5em;
 }
 
@@ -155,12 +154,12 @@ pre {
 }
 
 pre#demo-out {
-	overflow-x: auto; 
-	white-space: pre-wrap;
-	white-space: -moz-pre-wrap !important;
-	white-space: -pre-wrap;
-	white-space: -o-pre-wrap;
-	word-wrap: break-word;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
     margin-bottom: 0px;
 }
 
@@ -188,11 +187,11 @@ pre#demo-out {
 }
 
 p.important {
-	background-color: #FBE7E7;
-	background-color: #FFD6D7;
-	background-color: #FFDEE2;
-	padding: 1em 0.5em;
-	margin: 0.5em 0.0em 0.5em 0.5em;
+    background-color: #FBE7E7;
+    background-color: #FFD6D7;
+    background-color: #FFDEE2;
+    padding: 1em 0.5em;
+    margin: 0.5em 0.0em 0.5em 0.5em;
 }
 
 
@@ -210,10 +209,10 @@ p.important {
 
 pre.highlight {
     font-family: monospace; 
-	color: #f6f3e8;
-	background-color: #101010;
-	padding: 1.0em 4.0em;
-	margin: 1.0em 0;
+    color: #f6f3e8;
+    background-color: #101010;
+    padding: 1.0em 4.0em;
+    margin: 1.0em 0;
 
     -moz-box-shadow: 2px 2px 8px #888;
     -webkit-box-shadow: 2px 2px 8px #888;
@@ -221,59 +220,59 @@ pre.highlight {
 }
 
 .green-info {
-	background: #E0FAD7;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	margin-top: 1em;
+    background: #E0FAD7;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    margin-top: 1em;
 }
 
 
 .green-info a:hover {
-	background: none;
+    background: none;
 }
 
 .green-info h3 {
-	color: #0F3900;
-	text-shadow: 1px 1px 0px white;
-	margin: 0px 0px 8px 0px;
+    color: #0F3900;
+    text-shadow: 1px 1px 0px white;
+    margin: 0px 0px 8px 0px;
     padding: 0px;
     font-size: 140%;
 }
 
 .pad {
-	padding: 1em;
+    padding: 1em;
 }
 
 .center {
-	text-align: center;
+    text-align: center;
 }
 
 .right {
-	text-align: right;
+    text-align: right;
 }
 
 .single-commit {
-	border: 1px solid #777777;
-	margin-bottom: 2px;
-	padding: 2px 4px;
-	cursor: pointer;
-	font-size: 90%;
+    border: 1px solid #777777;
+    margin-bottom: 2px;
+    padding: 2px 4px;
+    cursor: pointer;
+    font-size: 90%;
 }
 
 .single-commit:hover {
-	background-color: #F4FFF0;
-	border: 1px solid green;
+    background-color: #F4FFF0;
+    border: 1px solid green;
 
 
-	background-color: #FFFDEB;
-	border: 1px solid #484100;
+    background-color: #FFFDEB;
+    border: 1px solid #484100;
 
 }
 
 .commit-message {
-	font-style: italic;
-	color: #444;
-	padding: 0px 2px;
+    font-style: italic;
+    color: #444;
+    padding: 0px 2px;
 }
 
 ul {
@@ -304,8 +303,8 @@ td {
 
 .code-split {
     width: 100%;
-	background-color: #101010;
-	margin: 1.0em 0;
+    background-color: #101010;
+    margin: 1.0em 0;
     -moz-box-shadow: 2px 2px 8px #888;
     -webkit-box-shadow: 2px 2px 8px #888;
     box-shadow: 2px 2px 8px #888;
@@ -313,7 +312,7 @@ td {
 
 .code-split td {
     width: 450px;
-	overflow-x: auto; 
+    overflow-x: auto;
 
     margin: 0px;
     padding: 0px;
