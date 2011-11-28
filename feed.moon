@@ -27,6 +27,21 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
+    version: "0.3.0"
+    date: date 2011, 11, 27, 21, 00
+    changes: [[
+      * compatibility update for lessjs
+      * changed argument delim to `,`
+      * don't need a `>` to delimit mixin path
+      * added `%` string escape function
+      * change string variable interpolation syntax to `@{var}`
+      * psuedo classes are not joined automatically when nested
+      * `&` can be used anywhere in selector to represent parent
+      * `~` operator, and `e` function for unquoting a string
+    ]]
+  }
+
+  release {
     version: "0.2.0"
     date: date 2010, 3, 27, 20
     changes: [[
