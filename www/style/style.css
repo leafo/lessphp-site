@@ -304,6 +304,13 @@ p code {
     border-radius: 2px;
 }
 
+.social {
+    float: right;
+    line-height: 40px;
+    vertical-align: center;
+    position: relative;
+    top: 6px;
+}
 
 /* docs */
 
