@@ -13,17 +13,19 @@ basic usage.
 For an overview of the syntax take a look at the [lessphp official
 documentation][2].
 
+Follow the author on twitter: [@moonscript](http://twitter.com/moonscript).
+
 
   [1]: http://lesscss.org/  "LESS CSS"
   [2]: ./docs  "lessphp Documentation"
   [3]: http://github.com/leafo/lessphp/issues "lessphp Issues"
-  [4]: http://github.com/ "github"
+  [4]: http://github.com/ "GitHub"
   [5]: ./changelog.html "changelog"
 
 ## Issues
 
 If you find something that isn't working right feel free to [leave a
-comment](#comments) or post on the [github issues tracker][3]. If you have any
+comment](#comments) or post on the [GitHub issues tracker][3]. If you have any
 interesting ideas for additions to the language please do suggest them as well.
 You can also [email me](mailto:leafot@gmail.com) if you want.
 
@@ -87,7 +89,7 @@ A list of changes is available on the [changelog page][5].
 
 ## Comments
 
-If you have a [github][4] account, you can post bug reports on the [github issues
+If you have a [GitHub][4] account, you can post bug reports on the [github issues
 tracker][3].
 
 <div class="comments" id="disqus_thread"></div>
