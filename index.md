@@ -15,7 +15,7 @@ documentation][2].
 
 
   [1]: http://lesscss.org/  "LESS CSS"
-  [2]: http://leafo.net/lessphp/docs  "lessphp Documentation"
+  [2]: ./docs  "lessphp Documentation"
   [3]: http://github.com/leafo/lessphp/issues "lessphp Issues"
   [4]: http://github.com/ "github"
   [5]: ./changelog.html "changelog"
@@ -43,40 +43,40 @@ compile a LESS file when the page is requested. The static function
 `less::ccompile`, checked compile, will compile the input LESS file only when
 it is newer than the output file.
 
-```php
-<?php
-require 'lessc.inc.php';
+    ```php
+    <?php
+    require 'lessc.inc.php';
 
-try {
-    lessc::ccompile('input.less', 'out.css');
-} catch (exception $ex) {
-    exit('lessc fatal error:<br />'.$ex->getMessage());
-}
+    try {
+        lessc::ccompile('input.less', 'out.css');
+    } catch (exception $ex) {
+        exit('lessc fatal error:<br />'.$ex->getMessage());
+    }
 
-```
+    ```
 
 Note that all failures with lessc are reported through exceptions. If you need
 more control you can make your own instance of lessc.
 
-```php
-<?php
-require 'lessc.inc.php';
+    ```php
+    <?php
+    require 'lessc.inc.php';
 
-$less = new lessc('path/to/style.less');
-file_put_contents('path/to/style.css', $less->parse());
-```
+    $less = new lessc('path/to/style.less');
+    file_put_contents('path/to/style.css', $less->parse());
+    ```
 
 In addition to loading from file, you can also parse from a string like so:
 
-```php
-<?php
-require 'lessc.inc.php';
+    ```php
+    <?php
+    require 'lessc.inc.php';
 
-$less = new lessc();
-$style = '<style type="text/css">'.
-    $less->parse('.block { padding: 3 + 4px }').
-	'</style>';
-```
+    $less = new lessc();
+    $style = '<style type="text/css">'.
+        $less->parse('.block { padding: 3 + 4px }').
+        '</style>';
+    ```
 
 ## Documentation
 
@@ -101,5 +101,4 @@ tracker][3].
 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 </script>
-
 
