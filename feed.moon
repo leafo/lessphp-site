@@ -28,6 +28,22 @@ return {
 
   release {
     version: "0.3.0"
+    date: date 2012, 1, 8, 20, 00
+    changes: [[
+      * New [extension function
+        interface](http://leafo.net/lessphp/docs/index.html#custom_functions) without
+        subclassing
+      * Support for [`@arguments` special
+        variable](http://leafo.net/lessphp/docs/index.html#arguments_variable)
+      * Added built in functions `alpha`, `fade`, `mix`, `percentage`
+      * Color keywords are translated to their rgb version when used in expressions
+        and functions
+      * Misc bug fixes
+    ]]
+  }
+
+  release {
+    version: "0.3.0"
     date: date 2011, 11, 27, 21, 00
     changes: [[
       * compatibility update for lessjs

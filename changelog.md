@@ -3,6 +3,19 @@
 
 ## Changelog
 
+<a name="v0.3.1"></a>
+**version 0.3.1 - January 8th 2012**
+
+* New [extension function
+  interface](http://leafo.net/lessphp/docs/index.html#custom_functions) without
+  subclassing
+* Support for [`@arguments` special
+  variable](http://leafo.net/lessphp/docs/index.html#arguments_variable)
+* Added built in functions `alpha`, `fade`, `mix`, `percentage`
+* Color keywords are translated to their rgb version when used in expressions
+  and functions
+* Misc bug fixes
+
 <a name="v0.3.0"></a>
 **version 0.3.0 - November 27th 2011**
 

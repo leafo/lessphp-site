@@ -98,7 +98,8 @@ CodeMirror.defineMode('less', function(conf) {
       }
 
       return "bracket";
-    } else if(ch.match(/[a-z]/i)) {
+    } else if (ch.match(/[a-z]/i)) {
+      stream.backUp(1);
       stream.match(atom);
       var word = stream.current();
       if (stream.match(/^\s*:/)) {
@@ -166,6 +167,7 @@ CodeMirror.defineMode('less', function(conf) {
     }
 
     if (ch.match(/[a-z]/i)) {
+      stream.backUp(1);
       stream.match(atom);
       var word = stream.current();
       if (word == "url" && stream.eat("(")) {
