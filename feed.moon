@@ -27,7 +27,7 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
-    version: "0.3.0"
+    version: "0.3.1"
     date: date 2012, 1, 8, 20, 00
     changes: [[
       * New [extension function
