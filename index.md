@@ -15,6 +15,10 @@ documentation][2].
 
 Follow the author on twitter: [@moonscript](http://twitter.com/moonscript).
 
+<div class="github-buttons">
+<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=leafo&repo=lessphp&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=leafo&repo=lessphp&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+</div>
 
   [1]: http://lesscss.org/  "LESS CSS"
   [2]: ./docs  "lessphp Documentation"

@@ -3,6 +3,17 @@
 
 ## Changelog
 
+<a name="v0.3.2"></a>
+**version 0.3.2 - January 8th 2012**
+
+* [Pattern matching](http://leafo.net/lessphp/docs/index.html#pattern_matching)
+* [Guards](http://leafo.net/lessphp/docs/index.html#guards)
+* [Variable variables](http://leafo.net/lessphp/docs/index.html#variables)
+* Testing script works on windows (thanks GerHobbelt)
+* Instance of `lessc` passed to extension functions as second arg
+* Fix broken nested import bug
+* Misc bug fixes
+
 <a name="v0.3.1"></a>
 **version 0.3.1 - January 8th 2012**
 

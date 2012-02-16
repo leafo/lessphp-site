@@ -23,8 +23,22 @@ release = (t) ->
 return {
   format: "markdown"
   title: "lessphp changelog"
-  link: "http://leafo.net/lessphp"
+  link: "http://leafo.net/lessphp/"
   description: "lessphp is a compiler for LESS written in PHP"
+
+  release {
+    version: "0.3.2"
+    date: date 2012, 2, 15, 23, 13
+    changes: [[
+      * [Pattern matching](http://leafo.net/lessphp/docs/index.html#pattern_matching)
+      * [Guards](http://leafo.net/lessphp/docs/index.html#guards)
+      * [Variable variables](http://leafo.net/lessphp/docs/index.html#variables)
+      * Testing script works on windows (thanks GerHobbelt)
+      * Instance of `lessc` passed to extension functions as second arg
+      * Fix broken nested import bug
+      * Misc bug fixes
+    ]]
+  }
 
   release {
     version: "0.3.1"
