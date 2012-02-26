@@ -27,6 +27,27 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
+    version: "0.3.3"
+    date: date 2012, 2, 26, 3, 8
+    changes: [[
+      * Importing done before evaluating to allow referencing mixins imported
+        from other files before they are defined.
+      * Fixed spin function to wrap hue around 0-360
+      * Resulting unit of math expressions matches less.js in all cases
+      * Division operator handled more like less.js (using property name,
+        see division section of [Expressions](http://leafo.net/lessphp/docs/index.html#expressions))
+      * Mixins look up variables in their lexical scope when being mixed (instead of the target scope)
+      * Expressions in variables evaluated in referenced scope instead of declared scope
+      * Infinite loop detection for new evaluation model
+      * Improved error messages for compile time errors
+      * Expressions can be placed in @media queries
+      * Default arguments appear in @arguments
+      * Tweaked output of color functions to match less.js
+      * Misc Bug fixes
+    ]]
+  }
+
+  release {
     version: "0.3.2"
     date: date 2012, 2, 15, 23, 13
     changes: [[
