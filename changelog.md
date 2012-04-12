@@ -3,6 +3,16 @@
 
 ## Changelog
 
+<a name="v0.3.4"></a>
+**version 0.3.4 - April 12th 2012**
+
+* Added [Selector Expressions](http://leafo.net/lessphp/docs/#selector_expressions)
+* Allow for mixins to recurse
+* Added varags syntax
+* Fixed bug with `~` and string interpolation
+* `ceil` function (krues8dr), `argb` function (Barryvdh)
+* Misc bug fixes
+
 <a name="v0.3.3"></a>
 **version 0.3.3 - February 26th 2012**
 

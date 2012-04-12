@@ -1,5 +1,6 @@
 (function() {
   var $, div, editor, examples, format_date, send;
+
   examples = {
     "default": '@base: 24px;\n@border-color: #B2B;\n\n.underline { border-bottom: 1px solid green }\n\n#header {\n  color: black;\n  border: 1px solid @border-color + #222222;\n\n  .navigation {\n    font-size: @base / 2;\n    a {\n    .underline;\n    }\n  }\n  .logo {\n    width: 300px;\n    :hover { text-decoration: none }\n  }\n}',
     variables: '@a: 2;\n@x: @a * @a;\n@y: @x + 1;\n@z: @x * 2 + @y;\n\n@nice-blue: #5B83AD;\n@light-blue: @nice-blue + #111;\n\n@b: @a * 10;\n@c: #888;\n@fonts: "Trebuchet MS", Verdana, sans-serif;\n\n.variables {\n  width: @z + 1cm; // 14cm\n  height: @b + @x + 0px; // 24px\n  color: @c;\n  background: @light-blue;\n  font-family: @fonts;\n}\n',
@@ -9,6 +10,7 @@
     color_funcs: '@base: #f04615;\n\n.class {\n  color: saturate(@base, 5%);\n  background-color: lighten(spin(@base, 8), 25%);\n}\n\na {\n  color: hsl(hue(@old), 45%, 90%);\n}\n',
     strings: '@symbol: ">";\nh1:before {\n  content: "@{symbol}: ";\n}\n\n@path: "files/";\nbody {\n  background: url(@{path}my_background.png);\n}\n\n@opacity: 0.5;\n.ie-transparent {\n  filter: e(%("alpha(opacity=%d)", @opacity));\n}'
   };
+
   send = function(url, data, on_finish) {
     var req;
     if (typeof XMLHttpRequest === "undefined") {
@@ -38,9 +40,11 @@
     req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     return req.send(data);
   };
+
   $ = function(id) {
     return document.getElementById(id);
   };
+
   div = function(inner, opts) {
     var node, opt_name, part, _i, _len;
     node = document.createElement("div");
@@ -61,22 +65,21 @@
     }
     return node;
   };
+
   format_date = function(date) {
     return (new Date(date)).toDateString();
   };
+
   editor = null;
+
   window.setup_editor = function(show_example) {
     var output_node;
-    if (show_example == null) {
-      show_example = true;
-    }
+    if (show_example == null) show_example = true;
     window.editor = editor = CodeMirror.fromTextArea($("editor-code"), {
       tabMode: "shift",
       lineNumbers: true
     });
-    if (show_example) {
-      editor.setValue(examples["default"]);
-    }
+    if (show_example) editor.setValue(examples["default"]);
     output_node = $("demo-out");
     $("compile-button").onclick = function() {
       var css;
@@ -90,6 +93,7 @@
       return editor.setValue("");
     };
   };
+
   window.github_commit_callback = function(out) {
     var commits, container, i, max, more, repo_url, _fn;
     commits = out.commits;
@@ -125,6 +129,7 @@
     container.appendChild(more);
     return null;
   };
+
   window.load_example_links = function() {
     var link, links, _i, _len, _results;
     links = $("demoselect").getElementsByTagName("a");
@@ -147,6 +152,7 @@
     }
     return _results;
   };
+
   window.load_github_commits = function() {
     var script;
     script = document.createElement("script");
@@ -155,4 +161,17 @@
     script.src = "github.php";
     return document.body.appendChild(script);
   };
+
+  window.leafo = {
+    track_event: function(cat, action, label, value, interactive) {
+      if (value == null) value = 0;
+      if (interactive == null) interactive = true;
+      try {
+        return _gaq.push(['_trackEvent', cat, action, label, value, interactive]);
+      } catch (e) {
+
+      }
+    }
+  };
+
 }).call(this);

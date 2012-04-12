@@ -27,6 +27,19 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
+    version: "0.3.4"
+    date: date 2012, 4, 12, 3, 8
+    changes: [[
+      * Added [Selector Expressions](http://leafo.net/lessphp/docs/#selector_expressions)
+      * Allow for mixins to recurse
+      * Added varags syntax
+      * Fixed bug with `~` and string interpolation
+      * `ceil` function (krues8dr), `argb` function (Barryvdh)
+      * Misc bug fixes
+    ]]
+  }
+
+  release {
     version: "0.3.3"
     date: date 2012, 2, 26, 3, 8
     changes: [[

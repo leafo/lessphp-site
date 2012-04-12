@@ -236,3 +236,11 @@ window.load_github_commits = ->
 
   document.body.appendChild script
 
+
+window.leafo = {
+  track_event: (cat, action, label, value=0, interactive=true) ->
+    try
+      _gaq.push ['_trackEvent', cat, action, label, value, interactive]
+    catch e
+}
+
