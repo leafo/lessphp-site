@@ -3,6 +3,11 @@
 
 ## Changelog
 
+<a name="v0.3.4-2"></a>
+**version 0.3.4-2 - April 17th 2012 (Bugfix)**
+
+* Fixed error about missing `is_vararg` for some blocks
+
 <a name="v0.3.4"></a>
 **version 0.3.4 - April 12th 2012**
 

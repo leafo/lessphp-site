@@ -28,6 +28,14 @@ return {
 
   release {
     version: "0.3.4"
+    date: date 2012, 4, 12, 5, 46
+    changes: [[
+      * Fixed error about missing `is_vararg` for some blocks
+    ]]
+  }
+
+  release {
+    version: "0.3.4"
     date: date 2012, 4, 12, 3, 8
     changes: [[
       * Added [Selector Expressions](http://leafo.net/lessphp/docs/#selector_expressions)
