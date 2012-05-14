@@ -27,7 +27,7 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
-    version: "0.3.4"
+    version: "0.3.4-2"
     date: date 2012, 4, 12, 5, 46
     changes: [[
       * Fixed error about missing `is_vararg` for some blocks
