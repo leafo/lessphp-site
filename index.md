@@ -91,6 +91,23 @@ page][2].
 
 A list of changes is available on the [changelog page][5].
 
+## Plugins
+
+Various **lessphp** plugins exist for many frameworks:
+
+ * [Symfony](http://www.symfony-project.org/plugins/sgLESSPlugin) by [ServerGrove](http://blog.servergrove.com/2009/07/30/css-symfony-plugin-with-lessphp/)
+
+ * [WordPress](http://wordpress.org/extend/plugins/wp-less/) by [Oncle Tom](http://case.oncle-tom.net/)
+
+ * [Drupal](http://drupal.org/project/less) by [Corey Aufang](http://drupal.org/user/163737)
+
+ * [CakePHP](https://github.com/sveggiani/Cakeless) by [sveggiani](https://github.com/sveggiani)
+
+ * [Magento](http://www.magentocommerce.com/magento-connect/catalog/product/view/id/12895/s/lesscss-5369/) by [groupesoczed](http://www.magentocommerce.com/magento-connect/developer/groupesoczed)
+
+*If you've got one, [email me](mailto:leafot@gmail.com) it and I'll post it
+here.*
+
 ## Comments
 
 If you have a [GitHub][4] account, you can post bug reports on the [github issues
