@@ -3,6 +3,15 @@
 
 ## Changelog
 
+<a name="v0.3.5"></a>
+**version 0.3.5 - June 10th 2012**
+
+* Added [output formatters, and compressed format](http://leafo.net/lessphp/docs/#output_formatting)
+* Support for [`!important` suffix on mixin](http://leafo.net/lessphp/docs/#important) (nyordanov)
+* Added [Composer package](http://packagist.org/packages/leafo/lessphp)
+* Property assignments moved to top of block (to match lessjs)
+* Handful of misc bug fixes, and huge code refactor
+
 <a name="v0.3.4-2"></a>
 **version 0.3.4-2 - April 17th 2012 (Bugfix)**
 

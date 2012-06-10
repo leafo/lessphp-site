@@ -58,7 +58,7 @@ site = sitegen.create_site =>
         }
 
   @title = "lessphp"
-  @current_version = "0.3.4-2"
+  @current_version = "0.3.5"
   deploy_to "leaf@leafo.net", "www/lessphp"
   feed "feed.moon", "feed.xml"
   add "docs/index.md"
