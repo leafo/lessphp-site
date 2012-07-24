@@ -191,7 +191,7 @@ window.setup_editor = (show_example=true)->
   if snippet_button = $("snippet-button")
     snippet_url = $("snippet-url")
     snippet_button.onclick = ->
-      base = window.location.href.match(/^([^#]*)/)
+      base = window.location.href.match(/^([^#]*)/)[1]
       snippet_url.value = base + "#" + encodeURIComponent(editor.getValue())
       snippet_url.focus()
       snippet_url.select()

@@ -102,7 +102,7 @@
       snippet_url = $("snippet-url");
       snippet_button.onclick = function() {
         var base;
-        base = window.location.href.match(/^([^#]*)/);
+        base = window.location.href.match(/^([^#]*)/)[1];
         snippet_url.value = base + "#" + encodeURIComponent(editor.getValue());
         snippet_url.focus();
         return snippet_url.select();
