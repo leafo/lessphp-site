@@ -175,7 +175,7 @@ window.setup_editor = (show_example=true)->
 
   output_node = $ "demo-out"
 
-  $("compile-button").onclick = ->
+  compile = ->
     output_node.innerHTML = "Processing..."
     css = encodeURIComponent editor.getValue()
     send "go.php", "css=#{css}", (req) ->
@@ -184,8 +184,24 @@ window.setup_editor = (show_example=true)->
       else
         req.responseText
 
-  $("clear-button").onclick = ->
-    editor.setValue ""
+  $("compile-button").onclick = compile
+  $("clear-button").onclick = -> editor.setValue ""
+
+  # snippet button
+  if snippet_button = $("snippet-button")
+    snippet_url = $("snippet-url")
+    snippet_button.onclick = ->
+      base = window.location.href.match(/^([^#]*)/)
+      snippet_url.value = base + "#" + encodeURIComponent(editor.getValue())
+      snippet_url.focus()
+      snippet_url.select()
+
+    # loading a snippet in the url?
+    unless show_example
+      hash = window.location.hash.substr(1)
+      if hash.length > 0
+        editor.setValue decodeURIComponent hash
+        compile()
 
 ## commit callback
 window.github_commit_callback = (out) ->
@@ -235,7 +251,6 @@ window.load_github_commits = ->
   script.src = "github.php"
 
   document.body.appendChild script
-
 
 window.leafo = {
   track_event: (cat, action, label, value=0, interactive=true) ->

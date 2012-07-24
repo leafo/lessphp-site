@@ -1,6 +1,11 @@
 link_to_home: true
 --
 
+<div class="save-snippet">
+  <input type="text" id="snippet-url" />
+  <button id="snippet-button">Generate Snippet URL</button>
+</div>
+
 <h2>Online Compiler</h2>
 
 <div class="full-editor">
@@ -12,15 +17,14 @@ link_to_home: true
   <button id="clear-button">Clear</button>
 </div>
 
-<pre id="demo-out" class="full-output"><em>CSS comes here...</em></pre>
+<strong>Output:</strong>
+<pre id="demo-out" class="full-output"><em>Type some LESS and click Compile!</em></pre>
 
-<script type="text/javascript" src="$root/index.js"></script>
+<script type="text/javascript" src="$root/index.js?$generate_date"></script>
 <script type="text/javascript">
   setup_editor(false);
   window.onload = function() {
     editor.focus()
   }
 </script>
-
-
 

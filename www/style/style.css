@@ -7,7 +7,7 @@
     border: 1px solid #EBEBAA;
 }
 
-.new strong {
+strong {
     color: #59502B;
 }
 
@@ -366,4 +366,16 @@ td {
 .github-buttons {
     padding: 4px 12px;
 }
+
+
+.save-snippet {
+    margin-top: 15px;
+    float: right;
+}
+
+.save-snippet input {
+    border: 1px solid silver;
+    border-radius: 2px;
+}
+
 
