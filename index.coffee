@@ -98,7 +98,7 @@ examples = {
     }
 
     a {
-      color: hsl(hue(@old), 45%, 90%);
+      color: hsl(hue(@base), 45%, 90%);
     }
 
   '''

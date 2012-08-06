@@ -27,6 +27,21 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
+    version: "0.3.6"
+    date: date 2012, 8, 6, 8, 45
+    changes: [[
+      * Added support for `@media` bubbling, you can now nest media blocks anywhere, and inside of each other.
+      * Added a option to enable the preservation of `/**/` comments. [setPreserveComments](http://leafo.net/lessphp/docs/#preserving_comments)
+      * Changed default output formatter to match lessjs
+      * Change internal structure of numbers and strings, **you will have to update your registered functions**.
+      * Disabled color compression, fixed a bug in sorting of properties that prevent your from overwriting same named properties.
+      * Fixed alpha(opactiy=) bug. Better support for IE style colors in filter() values.
+      * Better fallback for expressions that can't be evaluated.
+      * Misc bug fixes, enhanced test coverage significantly (now using [travisci](http://travis-ci.org/#!/leafo/lessphp))
+    ]]
+  }
+
+  release {
     version: "0.3.5"
     date: date 2012, 6, 10, 15, 26
     changes: [[

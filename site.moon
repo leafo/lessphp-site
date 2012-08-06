@@ -59,15 +59,18 @@ site = sitegen.create_site =>
         }
 
   @title = "lessphp"
-  @current_version = "0.3.5"
+  @current_version = "0.3.6"
   deploy_to "leaf@leafo.net", "www/lessphp"
   feed "feed.moon", "feed.xml"
   add "docs/index.md"
   add "editor.html"
 
-  scssphp = tools.system_command "scss < %s > %s", "css"
+  scssphp = tools.system_command "pscss < %s > %s", "css"
   lessphp = tools.system_command "plessc -r < %s > %s", "css"
 
+  coffeescript = tools.system_command "coffee -c -s < %s > %s", "js"
+
   build scssphp, "style.scss", "style/style.css"
+  build coffeescript, "index.coffee"
 
 site\write!
