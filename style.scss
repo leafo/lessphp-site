@@ -5,11 +5,12 @@
     -webkit-border-radius: 8px;
     padding: 1em;
     border: 1px solid #EBEBAA;
+
+    strong {
+        color: #59502B;
+    }
 }
 
-strong {
-    color: #59502B;
-}
 
 .hint {
     color: #444;
