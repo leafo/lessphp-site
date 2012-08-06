@@ -1,4 +1,99 @@
 
+$button-color: #0099FF;
+
+@mixin inline-block {
+    display: inline-block;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+}
+
+@mixin unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@mixin grad($top, $bottom) {
+    background-color: mix($top, $bottom);
+    background-image: linear-gradient(bottom, $bottom 0%, $top 100%);
+    background-image: -webkit-linear-gradient(bottom, $bottom 0%, $top 100%);
+    background-image: -moz-linear-gradient(bottom, $bottom 0%, $top 100%);
+    background-image: -o-linear-gradient(bottom, $bottom 0%, $top 100%);
+    background-image: -ms-linear-gradient(bottom, $bottom 0%, $top 100%);
+}
+
+@mixin autograd($color, $amount: 10%) {
+    @include grad($color, darken($color, $amount));
+}
+
+.top-right {
+    text-align: center;
+}
+
+.download-area {
+    @include inline-block;
+    text-align: center;
+    margin: 20px;
+
+    .below-download {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    .decorative {
+        font-family: serif;
+        color: gray;
+        font-style: italic;
+    }
+
+    .download-button {
+        $height: 8px;
+        $depress: 4px;
+
+        @include unselectable;
+        @include inline-block;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        top: -1px * $height;
+
+
+        font-size: 16px;
+        font-weight: bold;
+
+        @include autograd($button-color);
+        color: lighten($button-color, 80%);
+
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-shadow: none;
+
+        box-shadow: 0px $height 0px darken($button-color, 30%), inset 0px -1px 0px rgba(255,255,255, 0.2), inset 0px 1px 0px rgba(0,0,0, 0.2), 0px $height 10px #444;
+        text-shadow: 0px 1px 2px darken($button-color, 30%);
+
+        -webkit-transition: all 0.05s ease-in-out;
+        -moz-transition: all 0.05s ease-in-out;
+        transition: all 0.05s ease-in-out;
+
+        &:hover {
+            @include autograd(lighten($button-color, 3%));
+        }
+
+        &:active {
+            box-shadow: 0px $height - $depress 0px darken($button-color, 30%), inset 0px -1px 0px rgba(255,255,255, 0.2), inset 0px 1px 0px rgba(0,0,0, 0.2), 0px ($height - $depress) 10px #444;
+            top: -1px * ($height - $depress);
+        }
+
+        .sub {
+            font-size: 12px;
+            font-weight: normal;
+        }
+    }
+}
+
+
+
 .new {
     background: #FBFBB6;
     -moz-border-radius: 8px;
@@ -46,11 +141,13 @@ h3 { font-size: 18px; }
 .top {
     background: #182F51;
     height: 6px;
+    border-bottom: 1px solid white;
 }
 
 .header {
-    border-top: 1px solid white;
-    background: #E7F3FB;
+    $header-color: #E7F3FB;
+    @include autograd(darken($header-color, 0%));
+    box-shadow: inset 0px -1px 0px darken($header-color, 20%), inset 0px -2px 0px lighten($header-color, 10%), 0px -8px 16px 8px #C2C2C2;
     color: #182F51;
     text-shadow: 1px 1px 0px white;
 }
