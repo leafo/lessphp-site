@@ -7,8 +7,8 @@ template: home
 **lessphp** is a compiler for [LESS][1] written in PHP.
 
 The entire compiler comes in a single includable class, but an additional
-command line interface to the compiler is included. See the quick start for
-basic usage.
+command line interface to the compiler is included. It will run on PHP 5.1+.
+See the quick start for basic usage.
 
 For an overview of the syntax take a look at the [lessphp official
 documentation][2].

@@ -2,6 +2,7 @@ require "sitegen"
 
 extra = require "sitegen.extra"
 html = require "sitegen.html"
+tools = require "sitegen.tools"
 
 -- compile less to css
 compile_less = (code) ->
@@ -63,5 +64,10 @@ site = sitegen.create_site =>
   feed "feed.moon", "feed.xml"
   add "docs/index.md"
   add "editor.html"
+
+  scssphp = tools.system_command "scss < %s > %s", "css"
+  lessphp = tools.system_command "plessc -r < %s > %s", "css"
+
+  build scssphp, "style.scss", "style/style.css"
 
 site\write!
