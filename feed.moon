@@ -35,7 +35,7 @@ return {
       * Changed default output formatter to match lessjs
       * Change internal structure of numbers and strings, **you will have to update your registered functions**.
       * Disabled color compression, fixed a bug in sorting of properties that prevent your from overwriting same named properties.
-      * Fixed alpha(opactiy=) bug. Better support for IE style colors in filter() values.
+      * Fixed alpha(opacity=) bug. Better support for IE style colors in filter() values.
       * Better fallback for expressions that can't be evaluated.
       * Misc bug fixes, enhanced test coverage significantly (now using [travisci](http://travis-ci.org/#!/leafo/lessphp))
     ]]
