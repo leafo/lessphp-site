@@ -203,34 +203,6 @@ window.setup_editor = (show_example=true)->
         editor.setValue decodeURIComponent hash
         compile()
 
-## commit callback
-window.github_commit_callback = (out) ->
-  commits = out.commits
-  container = $ "commit-list"
-  container.removeChild container.firstChild while container.firstChild
-
-  max = if commits.length > 4 then 4 else commits.length
-  for i in [0...max]
-    do (i) ->
-      commit = commits[i]
-      date = format_date commit.committed_date
-      author_url = "http://github.com/#{commit.author.login}"
-
-      node = div [
-        div "<b>#{date}</b> &#151; <a href=\"#{author_url}\">#{commit.author.login}</a>"
-        div commit.message, { className: "commit-message" }
-      ], { className: "single-commit" }
-
-      node.onclick = ->
-        window.location = "http://github.com#{commit.url}"
-
-      container.appendChild node
-
-  repo_url = "http://github.com/leafo/lessphp/commits/master"
-  more = div "<a href=\"#{repo_url}\">See all...</a>", { className: 'center'}
-  container.appendChild more
-  null
-
 window.load_example_links = ->
   links = $("demoselect").getElementsByTagName "a"
   for link in links
@@ -244,18 +216,23 @@ window.load_example_links = ->
           alert "Failed to load example: #{id}"
       false
 
-window.load_github_commits = ->
-  script = document.createElement "script"
-  script.type = "text/javascript"
-  script.async = true
-  script.src = "github.php"
-
-  document.body.appendChild script
 
 window.leafo = {
+  track_elm: (id) ->
+    if elm = document.getElementById(id)
+      elm.onclick = ->
+        leafo.track_event "lessphp", "click", id
+
   track_event: (cat, action, label, value=0, interactive=true) ->
     try
       _gaq.push ['_trackEvent', cat, action, label, value, interactive]
+      console.log "tracked #{cat} #{action} #{label}"
     catch e
 }
+
+setTimeout (->
+  leafo.track_elm "big-download"
+  leafo.track_elm "small-download"
+  leafo.track_elm "doc-button"
+  leafo.track_elm "github-button"), 0
 

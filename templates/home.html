@@ -18,18 +18,20 @@ $wrap{"web"}
 
   <div class="grid_8 top-right">
     <div class="tools-area">
-      <a class="flat-button" href="$root/docs/">Documentation</a>
-      <a class="flat-button" href="http://github.com/leafo/lessphp">Source on GitHub</a>
+      <a class="flat-button" href="$root/docs/" id="doc-button">Documentation</a>
+      <a class="flat-button" href="http://github.com/leafo/lessphp" id="github-button">Source on GitHub</a>
     </div>
 
     <div class="download-area">
-      <div class="download-button">
-        <div>Download</div>
-        <div class="sub">lessphp-$current_version.tar.gz</div>
-      </div>
+      <a href="$root/src/lessphp-$current_version.tar.gz">
+        <div class="download-button" id="big-download">
+          <div>Download</div>
+          <div class="sub">lessphp-$current_version.tar.gz</div>
+        </div>
+      </a>
       <div class="below-download">
         <span class="decorative">or</span> 
-        <a href="">Using Composer</a>
+        <a href="#composer">Using Composer</a>
       </div>
     </div>
   </div>

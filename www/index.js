@@ -117,42 +117,6 @@
     }
   };
 
-  window.github_commit_callback = function(out) {
-    var commits, container, i, max, more, repo_url, _fn, _i;
-    commits = out.commits;
-    container = $("commit-list");
-    while (container.firstChild) {
-      container.removeChild(container.firstChild);
-    }
-    max = commits.length > 4 ? 4 : commits.length;
-    _fn = function(i) {
-      var author_url, commit, date, node;
-      commit = commits[i];
-      date = format_date(commit.committed_date);
-      author_url = "http://github.com/" + commit.author.login;
-      node = div([
-        div("<b>" + date + "</b> &#151; <a href=\"" + author_url + "\">" + commit.author.login + "</a>"), div(commit.message, {
-          className: "commit-message"
-        })
-      ], {
-        className: "single-commit"
-      });
-      node.onclick = function() {
-        return window.location = "http://github.com" + commit.url;
-      };
-      return container.appendChild(node);
-    };
-    for (i = _i = 0; 0 <= max ? _i < max : _i > max; i = 0 <= max ? ++_i : --_i) {
-      _fn(i);
-    }
-    repo_url = "http://github.com/leafo/lessphp/commits/master";
-    more = div("<a href=\"" + repo_url + "\">See all...</a>", {
-      className: 'center'
-    });
-    container.appendChild(more);
-    return null;
-  };
-
   window.load_example_links = function() {
     var link, links, _i, _len, _results;
     links = $("demoselect").getElementsByTagName("a");
@@ -176,16 +140,15 @@
     return _results;
   };
 
-  window.load_github_commits = function() {
-    var script;
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.async = true;
-    script.src = "github.php";
-    return document.body.appendChild(script);
-  };
-
   window.leafo = {
+    track_elm: function(id) {
+      var elm;
+      if (elm = document.getElementById(id)) {
+        return elm.onclick = function() {
+          return leafo.track_event("lessphp", "click", id);
+        };
+      }
+    },
     track_event: function(cat, action, label, value, interactive) {
       if (value == null) {
         value = 0;
@@ -194,11 +157,19 @@
         interactive = true;
       }
       try {
-        return _gaq.push(['_trackEvent', cat, action, label, value, interactive]);
+        _gaq.push(['_trackEvent', cat, action, label, value, interactive]);
+        return console.log("tracked " + cat + " " + action + " " + label);
       } catch (e) {
 
       }
     }
   };
+
+  setTimeout((function() {
+    leafo.track_elm("big-download");
+    leafo.track_elm("small-download");
+    leafo.track_elm("doc-button");
+    return leafo.track_elm("github-button");
+  }), 0);
 
 }).call(this);
