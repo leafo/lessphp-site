@@ -226,7 +226,6 @@ window.leafo = {
   track_event: (cat, action, label, value=0, interactive=true) ->
     try
       _gaq.push ['_trackEvent', cat, action, label, value, interactive]
-      console.log "tracked #{cat} #{action} #{label}"
     catch e
 }
 

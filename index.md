@@ -13,7 +13,7 @@ See the quick start for basic usage.
 
 For an overview of the syntax take a look at the [lessphp documentation][2].
 
-Follow the author on twitter: [@moonscript](http://twitter.com/moonscript).
+Follow the author on twitter for updates: [@moonscript](http://twitter.com/moonscript).
 
 <div class="github-buttons">
 <iframe src="http://ghbtns.com/github-btn.html?user=leafo&repo=lessphp&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
