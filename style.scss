@@ -1,6 +1,12 @@
 
 $button-color: #0099FF;
 
+@mixin animated($time: 0.05s, $names: all) {
+    -webkit-transition: $names $time ease-in-out;
+    -moz-transition: $names $time ease-in-out;
+    transition: $names $time ease-in-out;
+}
+
 @mixin inline-block {
     display: inline-block;
     *vertical-align: auto;
@@ -14,8 +20,15 @@ $button-color: #0099FF;
     user-select: none;
 }
 
-@mixin grad($top, $bottom) {
+@mixin grad($top, $bottom, $flip: false) {
     background-color: mix($top, $bottom);
+
+    @if $flip {
+        $tmp: $top;
+        $top: $bottom;
+        $bottom: $tmp;
+    }
+
     background-image: linear-gradient(bottom, $bottom 0%, $top 100%);
     background-image: -webkit-linear-gradient(bottom, $bottom 0%, $top 100%);
     background-image: -moz-linear-gradient(bottom, $bottom 0%, $top 100%);
@@ -23,18 +36,57 @@ $button-color: #0099FF;
     background-image: -ms-linear-gradient(bottom, $bottom 0%, $top 100%);
 }
 
-@mixin autograd($color, $amount: 10%) {
-    @include grad($color, darken($color, $amount));
+@mixin autograd($color, $amount: 10%, $flip: false) {
+    @include grad($color, darken($color, $amount), $flip);
 }
 
 .top-right {
+    text-align: right;
+}
+
+.download-area, .tools-area {
+    @include inline-block;
+    vertical-align: middle;
     text-align: center;
 }
 
+.tools-area {
+    margin: 20px 0;
+
+    .flat-button {
+        $border-color: desaturate(darken(#E0FAD7, 12%), 20%);
+
+        @include autograd(#E0FAD7, 3%);
+        @include animated(0.1s, box-shadow);
+
+        margin: 10px 0;
+        display: block;
+        color: darken(#E0FAD7, 65%);
+        text-shadow: 1px 1px 0px white;
+        border-radius: 8px;
+        border: 1px solid $border-color;
+        padding: 10px;
+
+        &:hover {
+            @include autograd(lighten(#E0FAD7, 2%), 3%);
+            border-color: darken($border-color, 3%);
+            box-shadow: 0px 0px 10px lighten($border-color, 10%);
+        }
+
+        &:active {
+            @include autograd(lighten(#E0FAD7, 2%), 3%, true);
+            position: relative;
+            top: 1px;
+        }
+    }
+}
+
 .download-area {
-    @include inline-block;
-    text-align: center;
+    border-left: 1px dashed #CECECE;
+
     margin: 20px;
+    padding: 20px;
+    padding-top: 28px;
 
     .below-download {
         margin-top: 5px;
@@ -53,7 +105,7 @@ $button-color: #0099FF;
 
         @include unselectable;
         @include inline-block;
-        text-align: center;
+        @include animated;
         cursor: pointer;
         position: relative;
         top: -1px * $height;
@@ -71,10 +123,6 @@ $button-color: #0099FF;
 
         box-shadow: 0px $height 0px darken($button-color, 30%), inset 0px -1px 0px rgba(255,255,255, 0.2), inset 0px 1px 0px rgba(0,0,0, 0.2), 0px $height 10px #444;
         text-shadow: 0px 1px 2px darken($button-color, 30%);
-
-        -webkit-transition: all 0.05s ease-in-out;
-        -moz-transition: all 0.05s ease-in-out;
-        transition: all 0.05s ease-in-out;
 
         &:hover {
             @include autograd(lighten($button-color, 3%));
@@ -95,7 +143,8 @@ $button-color: #0099FF;
 
 
 .new {
-    background: #FBFBB6;
+    $bright-bg: #FBFBB6;
+    background: $bright-bg;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     padding: 1em;
@@ -104,8 +153,11 @@ $button-color: #0099FF;
     strong {
         color: #59502B;
     }
-}
 
+    a:hover {
+        background-color: transparent;
+    }
+}
 
 .hint {
     color: #444;
@@ -178,8 +230,8 @@ h1 a:link, h1 a:visited {
 }
 
 p {
-    margin: 10px;
-    line-height: 130%;
+    margin: 15px 10px;
+    line-height: 150%;
 }
 
 ul p {
@@ -201,7 +253,15 @@ a:hover {
 }
 
 #nav {
-    margin: 1.0em 0.0em;
+    margin: 14px 0;
+
+    ul {
+        margin: 0;
+    }
+
+    li {
+        margin: 3px 0px;
+    }
 }
 
 hr {
@@ -388,18 +448,6 @@ pre.highlight {
     font-style: italic;
     color: #444;
     padding: 0px 2px;
-}
-
-ul {
-    margin: 0 0 0 1em;
-}
-
-li {
-    padding: 1px;
-}
-
-#nav ul, .green-info ul {
-    margin: 0;
 }
 
 p code {

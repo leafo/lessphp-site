@@ -2,6 +2,7 @@ title: LESS compiler in PHP
 template: home
 --
 
+<a name="about"></a>
 ## About
 
 **lessphp** is a compiler for [LESS][1] written in PHP.
@@ -10,8 +11,7 @@ The entire compiler comes in a single includable class, but an additional
 command line interface to the compiler is included. It will run on PHP 5.1+.
 See the quick start for basic usage.
 
-For an overview of the syntax take a look at the [lessphp official
-documentation][2].
+For an overview of the syntax take a look at the [lessphp documentation][2].
 
 Follow the author on twitter: [@moonscript](http://twitter.com/moonscript).
 
@@ -26,13 +26,7 @@ Follow the author on twitter: [@moonscript](http://twitter.com/moonscript).
   [4]: http://github.com/ "GitHub"
   [5]: ./changelog.html "changelog"
 
-## Issues
-
-If you find something that isn't working right feel free to [leave a
-comment](#comments) or post on the [GitHub issues tracker][3]. If you have any
-interesting ideas for additions to the language please do suggest them as well.
-You can also [email me](mailto:leafot@gmail.com) if you want.
-
+<a name="demo"></a>
 ## Demo
 
 Use the live demo to test the compiler using your own code, or click through the
@@ -40,8 +34,9 @@ example buttons to see various parts of the language.
 
 <div>$render{[[demo]]}</div>
 
-
 <div>$render{[[download]]}</div>
+
+<a name="quick_start"></a>
 ## Quick Start
 
 There are a few ways to interface with the compiler. The easiest is to have it
@@ -84,6 +79,7 @@ In addition to loading from file, you can also parse from a string like so:
         '</style>';
     ```
 
+<a name="documentation"></a>
 ## Documentation
 
 Full documentation and reference manual can be found on the [documentation
@@ -91,6 +87,7 @@ page][2].
 
 A list of changes is available on the [changelog page][5].
 
+<a name="plugins"></a>
 ## Plugins
 
 Various **lessphp** plugins exist for many frameworks:
@@ -108,6 +105,15 @@ Various **lessphp** plugins exist for many frameworks:
 *If you've got one, [email me](mailto:leafot@gmail.com) it and I'll post it
 here.*
 
+<a name="issues"></a>
+## Issues
+
+If you find something that isn't working right feel free to [leave a
+comment](#comments) or post on the [GitHub issues tracker][3]. If you have any
+interesting ideas for additions to the language please do suggest them as well.
+You can also [email me](mailto:leafot@gmail.com) if you want.
+
+<a name="comments"></a>
 ## Comments
 
 If you have a [GitHub][4] account, you can post bug reports on the [github issues
