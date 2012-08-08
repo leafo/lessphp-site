@@ -1,5 +1,7 @@
 
 $button-color: #0099FF;
+$bright-blue: #1C97E8;
+$border-color: #B4B4B4;
 
 @mixin animated($time: 0.05s, $names: all) {
     -webkit-transition: $names $time ease-in-out;
@@ -54,7 +56,7 @@ $button-color: #0099FF;
     margin: 20px 0;
 
     .flat-button {
-        $border-color: desaturate(darken(#E0FAD7, 12%), 20%);
+        $btn-border: desaturate(darken(#E0FAD7, 12%), 20%);
 
         @include autograd(#E0FAD7, 3%);
         @include animated(0.1s, box-shadow);
@@ -64,13 +66,13 @@ $button-color: #0099FF;
         color: darken(#E0FAD7, 65%);
         text-shadow: 1px 1px 0px white;
         border-radius: 8px;
-        border: 1px solid $border-color;
+        border: 1px solid $btn-border;
         padding: 10px;
 
         &:hover {
             @include autograd(lighten(#E0FAD7, 2%), 3%);
-            border-color: darken($border-color, 3%);
-            box-shadow: 0px 0px 10px lighten($border-color, 10%);
+            border-color: darken($btn-border, 3%);
+            box-shadow: 0px 0px 10px lighten($btn-border, 10%);
         }
 
         &:active {
@@ -175,14 +177,35 @@ hr {
     height:0;
 }
 
+h1 {
+    a {
+        &:link, &:visited {
+            color: #182F51;
+            text-decoration: none;
+            border-bottom: 0;
+        }
+
+        &:hover {
+            background: none;
+            color: lighten(#182F51, 10%);
+        }
+
+        &:active {
+            position: relative;
+            top: 1px;
+        }
+    }
+}
+
 h1, h2, h3, h4 {
     font-family: calibri, helvetica, sans-serif;
     margin: 0;
+
 }
 
 h2, h3, h4 {
     margin: 10px 0;
-    color: #1C97E8;
+    color: $bright-blue;
 }
 
 
@@ -211,21 +234,16 @@ h3 { font-size: 18px; }
 
 .header-link {
     padding-top: 1em;
-}
 
-.header-link a:link {
-    border-bottom: none;
-}
+    a {
+        &:link {
+            border-bottom: none;
+        }
 
-
-.header-link a:hover {
-    border-bottom: 1px solid #4570B8;
-}
-
-h1 a:link, h1 a:visited {
-    color: #182F51;
-    text-decoration: none;
-    border-bottom: 0;
+        &:hover {
+            border-bottom: 1px solid #4570B8;
+        }
+    }
 }
 
 p {
@@ -233,12 +251,20 @@ p {
     line-height: 150%;
 }
 
-ul p {
-    margin: 5px 0;
-}
-
 ul {
     margin: 10px 0;
+
+    li {
+        margin: 3px;
+    }
+
+    ul {
+        margin: 0;
+    }
+
+    p {
+        margin: 5px 0;
+    }
 }
 
 a:link, a:visited {
@@ -278,29 +304,32 @@ hr {
     color: #afafaf;
     font-size: 80%;
     text-align: center;
-    margin: 1.0em 0em;
-}
+    margin: 20px 20px;
+    padding-top: 10px;
 
-.foot a {
-    text-decoration: none;
-    color: #777777;
-    border-bottom: 1px solid #777777;
-}
+    border-top: 1px dashed lighten($border-color, 10%);
 
-.foot a:hover {
-    color: #000000;
-    background: none;
+    a {
+        text-decoration: none;
+        color: #777777;
+        border-bottom: 1px dashed $border-color;
+
+        &:hover {
+            color: #000000;
+            background: none;
+        }
+    }
 }
 
 #demoselect {
-    border: 1px solid #777777;
+    border: 1px solid $border-color;
     margin: 1em 0;
     padding: 0.5em;
 }
 
 .demo-box {
     position: relative;
-    border: 1px solid #777;
+    border: 1px solid $border-color;
 }
 
 .output-pane {
@@ -308,7 +337,7 @@ hr {
     margin: 0px;
     margin-left: 50%;
     background: #f4f4f4;
-    border-left: 1px dashed #777;
+    border-left: 1px dashed darken($border-color, 20%);
     padding: 8px;
 }
 
@@ -357,7 +386,7 @@ pre.output-pane {
 
 .comments {
     padding: 0.5em;
-    border: 1px solid #777777;
+    border: 1px solid $border-color;
 }
 
 p.important {
@@ -372,7 +401,7 @@ p.important {
 /* pygments */
 .s1, .s2 { color: #a8ff60; }
 .k { color: #96cbfe; }
-.nb { color: #ffd2a7; }
+.nb, .nt { color: #ffd2a7; }
 .o { color: #00a0a0; }
 .nv { color: #c6c5fe; }
 .cm, .c1 { color: #7c7c7c; }
@@ -382,15 +411,17 @@ p.important {
 .w { color: #FF7C73; }
 
 pre.highlight {
-    font-family: monospace; 
+    font-family: monospace;
     color: #f6f3e8;
-    background-color: #101010;
-    padding: 1.0em 4.0em;
-    margin: 1.0em 0;
+    background-color: #222;
+    border-radius: 2px;
 
-    -moz-box-shadow: 2px 2px 8px #888;
-    -webkit-box-shadow: 2px 2px 8px #888;
-    box-shadow: 2px 2px 8px #888;
+    padding: 20px 40px;
+    margin: 20px 0;
+
+    // box-shadow: 2px 2px 8px #888, inset 0px 0px 0px 1px lighten($bright-blue, 30%);
+    // border: 1px solid black;
+    box-shadow: 0px 0px 0px 1px white, 0px 0px 5px #222;
 }
 
 .green-info {
@@ -469,64 +500,65 @@ td {
     vertical-align: top;
 }
 
-
 .code-split {
     width: 100%;
-    background-color: #101010;
-    margin: 1.0em 0;
-    -moz-box-shadow: 2px 2px 8px #888;
-    -webkit-box-shadow: 2px 2px 8px #888;
-    box-shadow: 2px 2px 8px #888;
-}
+    background-color: #222;
+    margin: 20px 0px;
 
-.code-split td {
-    width: 450px;
-    overflow-x: auto;
+    box-shadow: 0px 0px 0px 1px white, 0px 0px 5px #222;
 
-    margin: 0px;
-    padding: 0px;
-}
+    border-radius: 2px;
 
-.code-split pre {
-    padding: 12px;
-    margin: 0px;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
+    .split-header {
+        color: #ddd;
+        font-size: 10px;
+        text-shadow: 0px 1px 0px black;
+        font-weight: bold;
+        background: rgba(255,255,255, 0.1);
+        border-bottom: 1px solid rgba(255,255,255, 0.2);
+
+        border-radius: 2px 2px 0px 0px;
+
+        td {
+            padding: 4px 8px 3px 8px;
+        }
+    }
 
 
-.code-split td.right-cell {
-    border-right: 0;
-    border-left: 2px solid #666;
-}
+    td {
+        width: 450px;
+        overflow-x: auto;
 
-.split-header {
-    color: #ddd;
-    font-size: 10px;
-    line-height: 16px;
-    text-shadow: 1px 1px 1px black;
-    font-weight: bold;
-    background: #666;
-}
+        margin: 0px;
+        padding: 0px;
 
-.code-split .split-header td {
-    padding-left: 8px;
+        &.right-cell {
+            border-right: 0;
+            border-left: 2px solid #666;
+        }
+    }
+
+    pre {
+        border: 0;
+        box-shadow: none;
+
+        padding: 20px 20px;
+        margin: 0px;
+    }
 }
 
 .github-buttons {
     padding: 4px 12px;
 }
 
-
 .save-snippet {
     margin-top: 15px;
     float: right;
-}
 
-.save-snippet input {
-    border: 1px solid silver;
-    border-radius: 2px;
+    input {
+        border: 1px solid silver;
+        border-radius: 2px;
+    }
 }
 
 
