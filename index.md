@@ -39,51 +39,56 @@ example buttons to see various parts of the language.
 <a name="quick_start"></a>
 ## Quick Start
 
-There are a few ways to interface with the compiler. The easiest is to have it
-compile a LESS file when the page is requested. The static function
-`less::ccompile`, checked compile, will compile the input LESS file only when
-it is newer than the output file.
+The typical flow of **lessphp** is to create a new instance of `lessc`,
+configure it how you like, then tell it to compile something using one built in
+compile methods.
+
+The `compile` method compiles a string of LESS code to CSS.
 
     ```php
     <?php
-    require 'lessc.inc.php';
+    require "lessc.inc.php";
 
+    $less = new lessc;
+    echo $less->compile(".block { padding: 3 + 4px }");
+    ```
+
+The `compileFile` method reads and compiles a file. It will either return the
+result or write it to the path specified by an optional second argument.
+
+    ```php
+    echo $less->compileFile("input.less");
+    ```
+
+The `compileChecked` method is like `compileFile`, but it only compiles if the output
+file doesn't exist or it's older than the input file:
+
+    ```php
+    $less->checkedCompile("input.less", "output.css");
+    ```
+
+If there any problem compiling your code, an exception is thrown with a helpful message:
+
+    ```php
     try {
-        lessc::ccompile('input.less', 'out.css');
-    } catch (exception $ex) {
-        exit('lessc fatal error:<br />'.$ex->getMessage());
+      $less->compile("invalid LESS } {");
+    } catch (exception $e) {
+      echo "fatal error: " . $e->getMessage();
     }
-
     ```
 
-Note that all failures with lessc are reported through exceptions. If you need
-more control you can make your own instance of lessc.
-
-    ```php
-    <?php
-    require 'lessc.inc.php';
-
-    $less = new lessc('path/to/style.less');
-    file_put_contents('path/to/style.css', $less->parse());
-    ```
-
-In addition to loading from file, you can also parse from a string like so:
-
-    ```php
-    <?php
-    require 'lessc.inc.php';
-
-    $less = new lessc();
-    $style = '<style type="text/css">'.
-        $less->parse('.block { padding: 3 + 4px }').
-        '</style>';
-    ```
+The `lessc` object can be configured through an assortment of instance methods.
+Some possible configuration options include [changing the output
+format](docs/#output_formatting), [setting variables from
+PHP](docs/#setting_variables_from_php), and [controlling the preservation of
+comments](docs/#preserving_comments), writing [custom
+functions](docs/#custom_functions) and much more. It's all described in [the
+documentation][2].
 
 <a name="documentation"></a>
 ## Documentation
 
-Full documentation and reference manual can be found on the [documentation
-page][2].
+A complete reference manual can be found on the [documentation page][2].
 
 A list of changes is available on the [changelog page][5].
 
