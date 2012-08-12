@@ -27,6 +27,18 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
+    version: "0.3.7"
+    date: date 2012, 8, 11, 22, 08
+    changes: [[
+      * Overhauled PHP API. See [documentation](http://leafo.net/docs/#php_interface).
+      * Performance optimizations, 25% speed up on average
+      * Imports can be inside of mixins.
+      * Import urls can contain expressions.
+      * Various bug fixes
+    ]]
+  }
+
+  release {
     version: "0.3.6"
     date: date 2012, 8, 6, 8, 45
     changes: [[
