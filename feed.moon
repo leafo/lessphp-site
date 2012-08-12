@@ -30,11 +30,11 @@ return {
     version: "0.3.7"
     date: date 2012, 8, 11, 22, 08
     changes: [[
-      * Overhauled PHP API. See [documentation](http://leafo.net/docs/#php_interface).
-      * Performance optimizations, 25% speed up on average
+      * Overhauled PHP API. See [documentation](http://leafo.net/docs/#php_interface). The old interface is still available, just deprecated and no longer documented.
+      * Performance optimizations, 25% speed up on average.
       * Imports can be inside of mixins.
       * Import urls can contain expressions.
-      * Various bug fixes
+      * Various bug fixes.
     ]]
   }
 
