@@ -7,7 +7,7 @@
 <a name="v0.3.7"></a>
 **version 0.3.7 - August 11th 2012**
 
-* Overhauled PHP API. See [documentation](http://leafo.net/docs/#php_interface). The old interface is still available, just deprecated and no longer documented.
+* Overhauled PHP API. See [documentation](http://leafo.net/lessphp/docs/#php_interface). The old interface is still available, just deprecated and no longer documented.
 * Performance optimizations, 25% speed up on average.
 * Imports can be inside of mixins.
 * Import urls can contain expressions.
