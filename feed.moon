@@ -28,6 +28,17 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
+    version: "0.3.8"
+    date: date 2012, 8, 18, 19, 22
+    changes: [[
+      * Fix bug preventing Bootstrap's responsive.less from compiling correctly
+      * User functions will already recieve colors in color format
+      * Compressed mode will always compress colors
+      * Fixed typos
+    ]]
+  }
+
+  release {
     version: "0.3.7"
     date: date 2012, 8, 11, 22, 08
     changes: [[
