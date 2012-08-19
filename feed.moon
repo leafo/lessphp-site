@@ -18,6 +18,7 @@ release = (t) ->
     link: "http://leafo.net/lessphp/changelog.html#v" .. t.version
     date: t.date
     description: desc
+    _release: t
   }
 
 return {

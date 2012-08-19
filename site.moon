@@ -64,6 +64,7 @@ site = sitegen.create_site =>
   feed "feed.moon", "feed.xml"
   add "docs/index.md"
   add "editor.html"
+  add "changelog.moon"
 
   scssphp = tools.system_command "pscss < %s > %s", "css"
   lessphp = tools.system_command "plessc -r < %s > %s", "css"
