@@ -28,6 +28,19 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
+    version: "0.3.9"
+    date: date 2013, 3, 2, 8, 16
+    changes: [[
+      * Fixes compile issue with latest version of bootstrap
+      * Support nested interpolations
+      * Support interpolations inside of selectors
+      * Variables can be inside of a `@media` declaration -- Matt Labrum
+      * `transparent` is recognized as a color -- Nikolay Yordanov
+      * Add `unit`, `red`, `green`, `blue`, `constrast` functions -- Lucas Green, Peter Knight, kaystrobach
+    ]]
+  }
+
+  release {
     version: "0.3.8"
     date: date 2012, 8, 18, 19, 22
     changes: [[
