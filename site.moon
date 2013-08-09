@@ -31,32 +31,35 @@ site = sitegen.create_site =>
 
     @pre_tag html_code, "php"
 
+  extra.PygmentsPlugin.custom_highlighters.lessbasic = (code_text) =>
+    @pre_tag less.highlight code_text
+
   extra.PygmentsPlugin.custom_highlighters.less = (code_text) =>
     if code_text\match"@import"
-      @pre_tag less.highlight code_text
-    else
-      css = compile_less code_text
-      html.build ->
-        tag.table {
-          __breakclose: true
-          class: "code-split"
-          cellspacing: "0"
-          cellpadding: "0"
-          tr {
-            class: "split-header"
-            td "LESS"
-            td { "CSS", class: "right-header" }
+      return extra.PygmentsPlugin.custom_highlighters.lessbasic code_text
+
+    css = compile_less code_text
+    html.build ->
+      tag.table {
+        __breakclose: true
+        class: "code-split"
+        cellspacing: "0"
+        cellpadding: "0"
+        tr {
+          class: "split-header"
+          td "LESS"
+          td { "CSS", class: "right-header" }
+        }
+        tr {
+          td {
+            raw @pre_tag less.highlight code_text
           }
-          tr {
-            td {
-              raw @pre_tag less.highlight code_text
-            }
-            td {
-              class: "right-cell"
-              raw @pre_tag less.highlight css
-            }
+          td {
+            class: "right-cell"
+            raw @pre_tag less.highlight css
           }
         }
+      }
 
   @title = "lessphp"
   @current_version = "0.3.9"
