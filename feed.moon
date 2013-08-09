@@ -28,6 +28,26 @@ return {
   description: "lessphp is a compiler for LESS written in PHP"
 
   release {
+    version: "0.4.0"
+    date: date 2013, 8, 9, 11, 29
+    changes: [[
+      Warning: this release has some breaking changes. If you the old selector
+      expression syntax (eg. Bootstrap 2.3) then it's recommended to use 0.3.9.
+
+      * Add support for ; as argument delimiter
+      * Add support for passing arguments by name to mixin
+      * Remove old selector expression syntax `("hello")`
+      * Remove ability to skip arguments by repeating delimiter
+      * Add built in functions: `sin`, `cos`, `tan`, `asin`, `acos`,
+        `atan`, `pow`, `pi`, `mod`, `sqrt`, `extract`
+      * Fix bug where @arguments was not getting values from `...`
+      * Selector interpolation works inside of brackets in selector
+      * Fix bug when resolving mixin that has same name as enclosing class
+      * Duplicate properties are now removed from output
+    ]]
+  }
+
+  release {
     version: "0.3.9"
     date: date 2013, 3, 2, 8, 16
     changes: [[
