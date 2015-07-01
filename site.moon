@@ -1,8 +1,11 @@
 require "sitegen"
 
-extra = require "sitegen.extra"
 html = require "sitegen.html"
 tools = require "sitegen.tools"
+
+PygmentsPlugin = require "sitegen.plugins.pygments"
+
+less = require "less"
 
 -- compile less to css
 compile_less = (code) ->
@@ -14,52 +17,52 @@ compile_less = (code) ->
   handle = io.popen "plessc "..fname
   handle\read"*a"
 
-less = require "less"
 
-site = sitegen.create_site =>
-  -- automatically add <?php when it's missing
-  extra.PygmentsPlugin.custom_highlighters.php = (code_text) =>
-    remove_php = false
-    if not code_text\match "%s*<%?php"
-      remove_php = true
-      code_text = "<?php ".. code_text
+-- automatically add <?php when it's missing
+PygmentsPlugin.custom_highlighters.php = (code_text) =>
+  remove_php = false
+  if not code_text\match "%s*<%?php"
+    remove_php = true
+    code_text = "<?php ".. code_text
 
-    html_code = @highlight "php", code_text
-    if remove_php
-      front = escape_patt '<span class="cp">&lt;?php</span> '
-      html_code = html_code\match "^%s*" .. front .. "(.-)\n?$"
+  html_code = @highlight "php", code_text
+  if remove_php
+    front = escape_patt '<span class="cp">&lt;?php</span> '
+    html_code = html_code\match "^%s*" .. front .. "(.-)\n?$"
 
-    @pre_tag html_code, "php"
+  @pre_tag html_code, "php"
 
-  extra.PygmentsPlugin.custom_highlighters.lessbasic = (code_text) =>
-    @pre_tag less.highlight code_text
+PygmentsPlugin.custom_highlighters.lessbasic = (code_text) =>
+  @pre_tag less.highlight code_text
 
-  extra.PygmentsPlugin.custom_highlighters.less = (code_text) =>
-    if code_text\match"@import"
-      return extra.PygmentsPlugin.custom_highlighters.lessbasic code_text
+PygmentsPlugin.custom_highlighters.less = (code_text) =>
+  if code_text\match"@import"
+    return PygmentsPlugin.custom_highlighters.lessbasic code_text
 
-    css = compile_less code_text
-    html.build ->
-      tag.table {
-        __breakclose: true
-        class: "code-split"
-        cellspacing: "0"
-        cellpadding: "0"
-        tr {
-          class: "split-header"
-          td "LESS"
-          td { "CSS", class: "right-header" }
+  css = compile_less code_text
+  html.build ->
+    tag.table {
+      __breakclose: true
+      class: "code-split"
+      cellspacing: "0"
+      cellpadding: "0"
+      tr {
+        class: "split-header"
+        td "LESS"
+        td { "CSS", class: "right-header" }
+      }
+      tr {
+        td {
+          raw @pre_tag less.highlight code_text
         }
-        tr {
-          td {
-            raw @pre_tag less.highlight code_text
-          }
-          td {
-            class: "right-cell"
-            raw @pre_tag less.highlight css
-          }
+        td {
+          class: "right-cell"
+          raw @pre_tag less.highlight css
         }
       }
+    }
+
+site = sitegen.create_site =>
 
   @title = "lessphp"
   @current_version = "0.4.0"

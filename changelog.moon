@@ -1,9 +1,12 @@
+{
+  title: "Changelog"
+  link_to_home: true
+}
 
 discount = require "discount"
 feed = require "feed"
 
-set "title", "Changelog"
-set "link_to_home", true
+import trim_leading_white from require "sitegen.common"
 
 html ->
   div {
